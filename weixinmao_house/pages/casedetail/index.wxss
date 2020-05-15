@@ -1,0 +1,226 @@
+.container {
+    background-color: #FFF;
+    min-height: 100%;
+}
+
+.container .header {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .header>image {
+    width: 750rpx;
+    height: 350rpx;
+}
+
+.container .title {
+    font-weight: bold;
+    font-size: 1rem;
+    width: 730rpx;
+    padding-left: 20rpx;
+    line-height: 90rpx;
+    height: 90rpx;
+}
+
+.container .team {
+    width: 750rpx;
+    display: flex;
+    flex-direction: row;
+    border-top: 1rpx solid #e3e3e3;
+    border-bottom: 1rpx solid #e3e3e3;
+}
+
+.container .team view {
+    font-size: .7rem;
+}
+
+.container .team .house {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 120rpx;
+    width: 240rpx;
+}
+
+.container .team .house>view {
+    height: 60rpx;
+    line-height: 60rpx;
+    width: 240rpx;
+    text-align: center;
+}
+
+.container .team .house>view:nth-child(2) {
+    color: red;
+    font-size: .8rem;
+}
+
+.container .team .line {
+    width: 1rpx;
+    background: #efefef;
+    height: 80rpx;
+    align-self: center;
+}
+
+.container .detail {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .list {
+    width: 720rpx;
+    display: flex;
+    flex-direction: row;
+    font-size: .8rem;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #e3e3e3;
+    padding-left: 30rpx;
+}
+
+.container .list text {
+    color: rgb(153,153,153);
+    margin-right: 10rpx;
+}
+
+.container .list .left {
+    width: 375rpx;
+    text-align: left;
+}
+
+.container .list .right {
+    width: 375rpx;
+    text-align: left;
+}
+
+.container .list .row {
+    width: 730rpx;
+    text-align: left;
+}
+
+.main .casetitle {
+    width: 730rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 20rpx;
+    font-size: .7rem;
+    border-bottom: 1rpx solid #efefef;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.main .casetitle view:nth-child(1) {
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 6rpx;
+    background: red;
+    align-self: center;
+}
+
+.main .casetitle view:nth-child(2) {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 150rpx;
+    padding-left: 15rpx;
+}
+
+.case {
+    margin-top: 10rpx;
+    width: 750rpx;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.case .casetitle {
+    width: 750rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: .7rem;
+    border-bottom: 1rpx solid #efefef;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.case .casetitle view:nth-child(1) {
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 6rpx;
+    background: red;
+    align-self: center;
+}
+
+.case .casetitle view:nth-child(2) {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 150rpx;
+    padding-left: 15rpx;
+}
+
+.case .caselist {
+    display: flex;
+    flex-direction: row;
+    width: 750rpx;
+    margin: 0 auto;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex-wrap: wrap;
+}
+
+.case .caselist .caseitem {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20rpx;
+}
+
+.case .caselist .caseitem .pic {
+    height: 220rpx;
+    line-height: 220rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.case .caselist .caseitem .pic image {
+    width: 320rpx;
+    height: 220rpx;
+}
+
+.case .caselist .caseitem .title {
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 320rpx;
+    font-size: .7rem;
+    padding-top: 10rpx;
+    color: #3e3e3e;
+    text-align: center;
+}
+
+.container .main {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .main .title {
+    width: 700rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: .8rem;
+    text-align: center;
+}
+
+.container .main .content {
+    width: 710rpx;
+    font-size: .8rem;
+    text-indent: 20rpx;
+}

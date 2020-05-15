@@ -1,0 +1,485 @@
+page {
+    background-size: 100% 100%;
+    height: 100%;
+    font-size: 32rpx;
+    font-family: "微软雅黑","方正黑体";
+    color: #333;
+}
+
+.colorred {
+    color: #e62129;
+}
+
+.city_header {
+    display: flex;
+    width: 92%;
+    line-height: 50px;
+    padding: 0 4%;
+    border-bottom: 1px solid #f5f5f5;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.city_header image {
+    width: 18px;
+    height: 18px;
+    padding-top: 17px;
+}
+
+.city_header text {
+    flex: 1;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cars_tap {
+    width: 200rpx;
+    left: 250rpx;
+}
+
+.carlist {
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    padding: 5px 4%;
+    border-bottom: 1px solid #ececec;
+}
+
+.carlist:last-child {
+    border-bottom: 0;
+}
+
+.carlist_top {
+    display: flex;
+}
+
+.car_imgs {
+    position: relative;
+    width: 104px;
+    height: 78px;
+}
+
+.newtop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1px 3px;
+    text-align: center;
+    background-color: #ff3a3b;
+    font-size: 10px;
+    color: #fff;
+}
+
+.picnum {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 0 5px;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+
+.car_imgs image {
+    width: 100%;
+    height: 100%;
+}
+
+.car_info {
+    flex: 1;
+    width: 60%;
+    padding-left: 5px;
+}
+
+.car_name {
+    display: block;
+    position: relative;
+    line-height: 20px;
+    height: auto;
+    overflow: hidden;
+    color: #333;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.car_hid {
+    display: block;
+    line-height: 20px;
+    padding-top: 15px;
+    color: #666;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.car_present {
+    display: flex;
+}
+
+.current_price {
+    line-height: 20px;
+    font-size: 15px;
+    color: #db0000;
+}
+
+.original_price {
+    color: #929292;
+    font-size: 12px;
+    text-decoration: line-through;
+    padding-left: 5px;
+}
+
+.car_present {
+    padding-top: 5px;
+}
+
+.car_tag {
+    flex: 1;
+    text-align: right;
+}
+
+.car_tag text {
+    padding: 0 3px;
+    color: #ff7e00;
+    border: 1px solid #ff7e00;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.carlist_buttom {
+    display: flex;
+    flex: 1;
+    padding-top: 5px;
+}
+
+.carlist_buttom text {
+    font-size: 12px;
+}
+
+.owner_sm {
+    line-height: 14px;
+    padding: 0 3px;
+    margin-right: 5px;
+    border: 1px solid #e62129;
+    border-radius: 2px;
+    color: #e62129;
+}
+
+.owner_rz {
+    line-height: 14px;
+    padding: 0 3px;
+    margin-right: 5px;
+    background-color: #e62129;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.owner_time {
+    flex: 1;
+    text-align: right;
+}
+
+.aside_letter {
+    position: fixed;
+    top: 58px;
+    right: 0;
+    z-index: 66;
+}
+
+.aside_letter text {
+    display: block;
+    width: 30px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #e62129;
+    text-align: center;
+}
+
+.select_cars_list {
+    display: flex;
+    border-bottom: 1px solid #ececec;
+}
+
+.select_cars_list image {
+    width: 18px;
+    height: 18px;
+    padding-top: 8px;
+}
+
+.sold {
+    background: url(http://s2.nongjigou.com/images/sold.png) no-repeat right 0;
+    background-size: 70px 70px;
+}
+
+.search {
+    display: flex;
+    width: 92%;
+    height: 50px;
+    padding: 0 4%;
+    border-bottom: 1px solid #ececec;
+    z-index: 99;
+    background-color: #fff;
+}
+
+navigator {
+    line-height: 50px;
+}
+
+.search image {
+    width: 30rpx;
+    height: 34rpx;
+    padding-right: 3px;
+    vertical-align: sub;
+}
+
+.search text {
+    line-height: 30px;
+    font-size: 14px;
+    color: #e62129;
+}
+
+.search_box {
+    display: flex;
+    flex: 1;
+    height: 30px;
+    padding-left: 15px;
+    margin: 10px 0 0 10px;
+    background-color: #f7f7f7;
+}
+
+.search_box icon {
+    padding-top: 8px;
+}
+
+.search_box text {
+    flex: 1;
+    padding-left: 5px;
+    color: #999;
+}
+
+.list_sort {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    line-height: 32px;
+    z-index: 99;
+    font-size: 14px;
+    border-bottom: 1px solid #f5f5f5;
+    color: #333;
+    background-color: #fff;
+}
+
+.sort_list {
+    width: 24%;
+    text-align: center;
+    border-right: 1px solid #ececec;
+}
+
+.sort_list:last-child {
+    border-right: 0;
+}
+
+.sort_list image {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+}
+
+.sort_list text {
+    display: inline-block;
+    width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+}
+
+.select_cars,.select_sort,.select_price {
+    position: fixed;
+    top: 85px;
+    z-index: 999;
+    width: 92%;
+    padding: 0 4%;
+    background-color: #fff;
+}
+
+.select_cars text,.select_sort text {
+    display: block;
+    flex: 1;
+    line-height: 35px;
+    font-size: 13px;
+}
+
+.select_cars text:last-child,.select_sort text:last-child {
+    border-bottom: 0;
+}
+
+.select {
+    border-bottom: 1px solid #e62129;
+}
+
+.select text {
+    color: #e62129;
+}
+
+.select_price {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6px 4%;
+}
+
+.select_price .item {
+    width: 750rpx;
+}
+
+.select_price .item .content {
+    width: 750rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.select_price .item .content text {
+    padding: 5rpx 15rpx;
+    line-height: 30px;
+    margin: 6px 1.8%;
+    border: 1px solid #acacac;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.select_price .boractive {
+    border: 1px solid #e62129;
+    color: #e62129;
+}
+
+.small_overlay {
+    position: fixed;
+    width: 100%;
+    height: 80%;
+    bottom: 0;
+    left: 0;
+    z-index: 666;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.loadmore {
+    line-height: 35px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.makebutton {
+    display: flex;
+    width: 750rpx;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.makebutton button {
+    background: #e62129;
+    color: #FFF;
+    width: 260rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: .7rem;
+    align-self: center;
+}
+
+.newslist {
+    display: flex;
+    flex-direction: row;
+    width: 720rpx;
+    margin: 0 auto;
+    border-bottom: 1px solid #efefef;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.newslist .pic {
+    width: 35%;
+    height: 220rpx;
+    line-height: 220rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.newslist .pic image {
+    width: 260rpx;
+    height: 210rpx;
+}
+
+.newslist .title {
+    width: 65%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    height: 200rpx;
+}
+
+.newslist .title .address {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .7rem;
+    color: #000;
+}
+
+.newslist .title .housearea {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .7rem;
+    padding-top: 5rpx;
+    padding-bottom: 5rpx;
+    color: #000;
+}
+
+.newslist .title .address text {
+    color: #1aac19;
+}
+
+.newslist .title .perprice {
+    padding-left: 5%;
+    font-size: .7rem;
+    color: #d65408;
+    font-weight: bold;
+}
+
+.newslist .title .price {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .6rem;
+    color: #6a6a6a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60rpx;
+    line-height: 60rpx;
+    align-self: baseline;
+    width: 450rpx;
+}
+
+.newslist .title .price view text {
+    padding: 5rpx 7rpx;
+    border-radius: 3rpx;
+    margin-right: 5rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    color: #77af6e;
+    background: #f7f5f6;
+}
+
+.newslist .title .price .money {
+    color: #d65408;
+    font-weight: bold;
+    font-size: .8rem;
+    padding-right: 10rpx;
+}

@@ -1,0 +1,89 @@
+<view class="container">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                    新楼盘
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                    二手房
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                    出租房
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <block wx:if="{{list}}">
+        <view class="newslist" wx:for="{{list}}">
+            <block wx:if="{{housetype=='lethouse'}}">
+                <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+                    <view class="address">
+                        <view>{{item.title}}</view>
+                    </view>
+                    <view class="housearea">{{item.housearea}}</view>
+                    <view class="perprice">
+                                    {{item.roomtype}}  {{item.payway}} 
+                                </view>
+                    <view class="price">
+                        <view>
+                            <text>面积{{item.area}}㎡</text>
+                            <text>{{item.housetypename}}</text>
+                            <text>{{item.housestyle}}</text>
+                        </view>
+                        <view class="money"> {{item.money}}元/月</view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{housetype=='newhouse'}}">
+                <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+                    <view class="address">
+                        <view>{{item.housename}}</view>
+                        <view>{{item.companyname}}</view>
+                        <view>{{item.houseaddress}}</view>
+                    </view>
+                    <view class="price">
+                        <view>
+                            <text>{{item.areaname}}</text>
+                            <text>{{item.housetypename}}</text>
+                        </view>
+                        <view class="money">{{item.houseprice}}元/㎡</view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{housetype=='oldhouse'}}">
+                <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+                    <view class="address">
+                        <view>
+                            <text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+                    </view>
+                    <view class="housearea">{{item.housearea}}</view>
+                    <view class="perprice">
+                                     均价{{item.perprice}}元/㎡
+                                     </view>
+                    <view class="price">
+                        <view>
+                            <text>面积{{item.area}}㎡</text>
+                            <text>{{item.housetypename}}</text>
+                            <text>{{item.housestyle}}</text>
+                        </view>
+                        <view class="money"> {{item.saleprice}}万</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+</view>

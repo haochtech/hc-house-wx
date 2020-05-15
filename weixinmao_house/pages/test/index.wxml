@@ -1,0 +1,40 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          个人基本信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">姓 名</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入姓名" type="text" value="{{noteinfo.name?noteinfo.name:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 手机号码 </view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入手机号码" type="text" value="{{noteinfo.tel?noteinfo.tel:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> Q Q </view>
+                    <view class="selectitem">
+                        <input name="qq" placeholder="请输入QQ" type="text" value="{{noteinfo.email?noteinfo.email:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 地 址</view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请输入地址" type="text" value="{{noteinfo.address?noteinfo.address:''}}"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button class="footer" formType="submit">提交申请</button>
+        </view>
+    </view>
+</form>

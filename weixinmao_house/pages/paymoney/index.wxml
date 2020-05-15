@@ -1,0 +1,37 @@
+<view class="balance-demo" id="balanceDemo">
+    <form>
+        <button bindtap="selectNav" class="type-nav {{curNav==item.id?'selected':''}}" data-id="{{item.id}}" data-index="{{index}}" data-money="{{item.money}}" wx:for="{{navList}}">
+            <text class="top type-nav {{curNav==item.id?'selected':''}}" data-id="{{item.id}}" data-index="{{index}}">{{item.chongzhi}}
+          </text>
+            <text class="botton type-nav {{curNav==item.id?'selected':''}}" data-id="{{item.id}}" data-index="{{index}}" style="font-size:.7rem;">{{item.song}}
+          </text>
+        </button>
+    </form>
+</view>
+<view class="goblance">
+    <view class="txt_t">
+        <button bindtap="pay" data-money="500">立即支付</button>
+    </view>
+</view>
+<view class="scorelist">
+    <view class="title">
+        <view>ID</view>
+        <view>金额</view>
+        <view>结余</view>
+        <view>备注</view>
+        <view>时间</view>
+    </view>
+    <view class="list" wx:for="{{scorelist}}">
+        <view>{{item.id}}</view>
+        <view>{{item.type==0?'充(佣金)':'消费'}}{{item.score}}</view>
+        <view>{{item.totalscore}}</view>
+        <view>{{item.content}}</view>
+        <view>{{item.createtime}}</view>
+    </view>
+</view>
+<modal bindconfirm="confirm" class="mb-balance" confirmText="确定" hidden="false" noCancel="true" title="充值成功">
+  您已成功充值{{sucmoney}}元。
+</modal>
+<modal bindcancel="yajincancel" bindconfirm="yajinconfirm" cancelText="取消" class="mb-yajin" confirmText="{{yajinmodaltxt}}" hidden="{{yajinhidden}}" noCancel="{{nocancel}}" title="{{tajinmodaltitle}}">
+  {{yajintxt}}。
+</modal>

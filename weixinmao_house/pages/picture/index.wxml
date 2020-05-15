@@ -1,0 +1,18 @@
+<view class="container">
+    <view class="case">
+        <view class="casetitle">
+            <view></view>
+            <view>服务内容</view>
+        </view>
+        <view class="caselist">
+            <view class="caseitem" wx:for="{{services}}">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                             {{item.title}}
+                          </view>
+            </view>
+        </view>
+    </view>
+</view>

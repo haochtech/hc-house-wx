@@ -1,0 +1,77 @@
+<view class="container">
+    <view class="header" style="background:{{intro.maincolor}}">
+        <view class="pic">
+            <image src="{{data.thumb}}"></image>
+            <view>{{data.name}}</view>
+        </view>
+    </view>
+    <view class="order">
+        <view class="title">
+          经纪人简介
+      </view>
+        <view class="content">
+        {{data.intro}}
+      </view>
+    </view>
+    <view class="list">
+        <view bindtap="doCall" class="item" data-tel="{{data.tel}}">联系电话 : {{data.tel}}</view>
+        <view class="item">微信号 : {{data.qq}}</view>
+        <view class="item">中介地址 : {{data.address}}</view>
+    </view>
+</view>
+<view class="type-container">
+    <scroll-view class="type-navbar" scrollX="true">
+        <view class="type-box">
+            <view bindtap="tabClick" class="type-navbar-item {{activeCategoryId==1?'type-item-on':''}}" id="1">
+                    二手房源
+                </view>
+        </view>
+        <view class="type-box">
+            <view bindtap="tabClick" class="type-navbar-item {{activeCategoryId==2?'type-item-on':''}} " id="2">
+                  出租房源
+                </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="container" style="margin-bottom:150rpx;">
+    <block wx:if="{{list}}">
+        <view class="newslist" wx:for="{{list}}">
+            <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+                <view class="address">
+                    <view>
+                        <text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+                </view>
+                <view class="housearea">{{item.housearea}}</view>
+                <view class="perprice">
+                                    {{item.roomtype}}  {{item.payway}} 
+                                </view>
+                <view class="price">
+                    <view>
+                        <text>面积{{item.area}}㎡</text>
+                        <text>{{item.housetypename}}</text>
+                        <text>{{item.housestyle}}</text>
+                    </view>
+                    <view class="money">
+                        <block wx:if="{{activeCategoryId==1}}">
+                                             {{item.money}}万
+                                          </block>
+                        <block wx:else>
+                                            {{item.money}}元/月
+                                           </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="doCall" class="footer" data-tel="{{data.tel}}">
+            <image src="../../resource/img/tel.png"></image>联系经纪人</view>
+        <view bindtap="toComplain" class="footer" data-id="{{data.id}}">
+            <image src="../../resource/images/lbs.png"></image>我要投诉</view>
+    </view>
+</view>

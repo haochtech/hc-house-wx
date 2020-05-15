@@ -1,0 +1,34 @@
+<view class="container">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                    全部订单
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                    未获得
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                    已获得
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="orderlist" wx:for="{{list}}">
+        <view class="orderid">订 单 号:{{item.orderid}}</view>
+        <view class="content">
+            <view class="item">来源:{{item.content}}</view>
+            <view class="item">所得佣金:￥{{item.money}}</view>
+            <view class="item">支付状态:{{item.statusStr}}</view>
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="payitem">
+                <view bindtap="RepayOrder" data-id="{{item.id}}" hidden="{{item.paid==0?false:true}}" wx:if="{{item.status!=-1&&item.paid==0}}">立即支付</view>
+                <view bindtap="delOrder" data-id="{{item.id}}" hidden="{{item.status==-1?true:false}}" wx:if="{{item.paid==0}}">取消订单</view>
+            </view>
+        </view>
+    </view>
+</view>

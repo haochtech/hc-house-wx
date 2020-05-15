@@ -1,0 +1,65 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "4.5",
+	"appid": "wx05d05022353814fe",
+	"projectname": "weixinmao_house",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "weixinmao_house/pages/fxnewhousedetail/index",
+					"pathName": "weixinmao_house/pages/fxnewhousedetail/index",
+					"query": "scene=47@1837",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "weixinmao_house/pages/newshare/index",
+					"pathName": "weixinmao_house/pages/newshare/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

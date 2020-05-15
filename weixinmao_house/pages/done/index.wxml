@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="main">
+        <image src="../../resource/images/ok.png"></image>
+    </view>
+    <view class="title">{{msg}}</view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="goIndex" class="footer">
+            <image src="../../resource/images/lbs.png"></image>返回首页</view>
+        <view bindtap="doCall" class="footer" data-tel="{{companyinfo.tel}}">
+            <image src="../../resource/img/tel.png"></image>联系客服</view>
+    </view>
+</view>

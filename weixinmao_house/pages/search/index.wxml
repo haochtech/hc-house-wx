@@ -1,0 +1,22 @@
+<view class="container">
+    <form bindsubmit="bindSave">
+        <view class="search">
+            <icon size="14" type="search"></icon>
+            <input confirmType="search" name="keyword" placeholder="请输入相关信息" placeholderClass="search_plac" type="text"></input>
+            <button formType="submit">搜索</button>
+        </view>
+    </form>
+    <view class="news" wx:if="{{list}}">
+        <view class="newslist" wx:for="{{list}}">
+            <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}" data-type="{{item.type}}">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}" data-type="{{item.type}}">
+                <view>{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="loadmore" hidden="{{loadmore}}">
+        <text>未查找相关信息</text>
+    </view>
+</view>

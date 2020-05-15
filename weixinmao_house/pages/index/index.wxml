@@ -1,0 +1,356 @@
+<import src="templates/agentlist.wxml"></import>
+<view class="weixinmao-msg-usertel-showmsg" hidden="{{indeximg}}">
+    <view class="weixinmao-content-usertel-showmsg">
+        <image src="{{intro.indexadv}}"></image>
+        <view bindtap="closeIndeximg" class="sum">
+            <image src="../../resource/images/close.png"></image>
+        </view>
+    </view>
+</view>
+<scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
+    <view class="container" hidden="{{isshow}}">
+        <view class="header" style="background:{{intro.maincolor}}">
+            <navigator hoverClass="none" url="../city/index?id=0">
+                <view class="city">
+                    <text class="fa fa-map-marker  fa-lg"></text> {{city}}
+    </view>
+            </navigator>
+            <view bindtap="toSearch" class="search">
+                <icon size="14" type="search"></icon>
+                <view>请输入楼盘、小区、地名等相关信息</view>
+            </view>
+        </view>
+        <view class="swiper-container">
+            <swiper autoplay="{{autoplay}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+                <block wx:for="{{banners}}">
+                    <swiper-item wx:if="{{item.link}}">
+                        <image bindtap="{{item.toway}}" class="slide-image" data-appid="{{item.appid}}" data-id="{{item.link}}" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
+                    </swiper-item>
+                    <swiper-item wx:else>
+                        <image class="slide-image" data-id="" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="dots">
+                <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="index"></view>
+            </view>
+        </view>
+        <view class="navlist">
+            <block wx:if="{{navlist!=''}}">
+                <view bindtap="{{item.link}}" class="item" data-appid="{{item.appid}}" data-id="{{item.cateid}}" data-url="{{item.innerurl}}" wx:for="{{navlist}}">
+                    <image src="{{item.thumb}}"></image>
+                    <view>{{item.advname}}</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view bindtap="toNewHouse" class="item">
+                    <image src="../../resource/images/t1.png"></image>
+                    <view>新房</view>
+                </view>
+                <view bindtap="toOldHouse" class="item">
+                    <image src="../../resource/images/t2.png"></image>
+                    <view>二手房</view>
+                </view>
+                <view bindtap="toArticle" class="item">
+                    <image src="../../resource/images/t5.png"></image>
+                    <view>房屋买卖</view>
+                </view>
+                <view bindtap="toMessage" class="item">
+                    <image src="../../resource/images/t7.png"></image>
+                    <view>申请入驻</view>
+                </view>
+                <view bindtap="toAgentlist" class="item">
+                    <image src="../../resource/images/t4.png"></image>
+                    <view>经纪人</view>
+                </view>
+                <view bindtap="toLethouse" class="item">
+                    <image src="../../resource/images/t3.png"></image>
+                    <view>房屋出租</view>
+                </view>
+                <view bindtap="toActive" class="item">
+                    <image src="../../resource/images/t6.png"></image>
+                    <view>购房活动</view>
+                </view>
+                <view bindtap="goPub" class="item">
+                    <image src="../../resource/images/t8.png"></image>
+                    <view>发布房源</view>
+                </view>
+            </block>
+        </view>
+        <block wx:if="{{moban==0}}">
+            <view class="news">
+                <view class="newstitle">
+                    <view style="background:{{intro.maincolor}}"></view>
+                    <view>推荐楼盘</view>
+                </view>
+                <block wx:if="{{newhouselist}}">
+                    <view class="newslist" wx:for="{{newhouselist}}" wx:key="index">
+                        <view bindtap="toNewHouseDetail" class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                            <image class="imglabel" src="../../resource/images/status{{item.housestatus}}.gif" style="width:90rpx;height:90rpx;"></image>
+                        </view>
+                        <view bindtap="toNewHouseDetail" class="title" data-id="{{item.id}}">
+                            <view class="address">
+                                <view>{{item.housename}}</view>
+                                <view>{{item.companyname}}</view>
+                                <view>{{item.houseaddress}}</view>
+                            </view>
+                            <view class="price">
+                                <view>
+                                    <text>{{item.areaname}}</text>
+                                    <text>{{item.housetypename}}</text>
+                                </view>
+                                <view class="money">{{item.houseprice==0?'待售':item.houseprice+'元/㎡'}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+             <!-- 首页拍卖的 -->
+            <!-- <view class="news">
+                <view class="newstitle">
+                    <view style="background:{{intro.maincolor}}"></view>
+                    <view>推荐拍卖房</view>
+                </view>
+                <block wx:if="{{houselist}}">
+                    <view class="newslist" wx:for="{{houselist}}">
+                        <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                            <image class="imglabel" src="../../resource/images/oldstatus{{item.salestatus}}.gif" style="width:90rpx;height:90rpx;"></image>
+                        </view>
+                        <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+                            <view class="address">
+                                <view><text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+                                <view>{{item.housearea}}</view>
+                                <view>均价{{item.perprice}}元/㎡</view>
+                            </view>
+                            <view class="price">
+                                <view>
+                                    <text>面积{{item.area}}㎡</text>
+                                    <text>{{item.housetypename}}</text>
+                                    <text>{{item.housestyle}}</text>
+                                </view>
+                                <view class="money"> {{item.saleprice}}万</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view> -->
+
+
+            <view class="news">
+                <view class="newstitle">
+                    <view style="background:{{intro.maincolor}}"></view>
+                    <view>最新二手房</view>
+                </view>
+                <block wx:if="{{newhouselist}}">
+                    <view class="oldlist" wx:for="{{oldhouselist}}" wx:key="index">
+                        <view bindtap="toOldHouseDetail" class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                            <image class="imglabel" src="../../resource/images/oldstatus{{item.salestatus}}.gif" style="width:90rpx;height:90rpx;"></image>
+                        </view>
+                        <view bindtap="toOldHouseDetail" class="title" data-id="{{item.id}}">
+                            <view class="address">
+                                <view>
+                                    <text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+                            </view>
+                            <view class="housearea">{{item.housearea}}</view>
+                            <view class="perprice">
+                                     均价{{item.perprice}}元/㎡
+                                     </view>
+                            <view class="price">
+                                <view>
+                                    <text>面积{{item.area}}㎡</text>
+                                    <text>{{item.housetypename}}</text>
+                                    <text>{{item.housestyle}}</text>
+                                </view>
+                                <view class="money"> {{item.saleprice}}万</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            
+        </block>
+        <block wx:else>
+            <template is="agentlist" data="{{agentlist:agentlist}}" wx:if="{{agentlist}}"></template>
+            <view class="news">
+                <view class="newstitle">
+                    <view></view>
+                    <view>最新房源</view>
+                </view>
+            </view>
+            <view class="type-container_switch">
+                <scroll-view class="type-navbar_switch" scrollX="true">
+                    <view class="type-box_switch">
+                        <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==1?'type-item-on_switch':''}}" id="1">
+                    最新楼盘
+                </view>
+                    </view>
+                    <view class="type-box_switch">
+                        <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==2?'type-item-on_switch':''}}" id="2">
+                    买卖房源
+                </view>
+                    </view>
+                    <view class="type-box_switch">
+                        <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==3?'type-item-on_switch':''}}" id="3">
+                  房屋出租
+                </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="news" hidden="{{ordertype==1?false:true}}">
+                <block wx:if="{{newhouselist}}">
+                    <view class="newslist" wx:for="{{newhouselist}}" wx:key="index">
+                        <view bindtap="toNewHouseDetail" class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                            <image class="imglabel" src="../../resource/images/status{{item.housestatus}}.gif" style="width:90rpx;height:90rpx;"></image>
+                        </view>
+                        <view bindtap="toNewHouseDetail" class="title" data-id="{{item.id}}">
+                            <view class="address">
+                                <view>{{item.housename}}</view>
+                                <view>{{item.companyname}}</view>
+                                <view>{{item.houseaddress}}</view>
+                            </view>
+                            <view class="price">
+                                <view>
+                                    <text>{{item.areaname}}</text>
+                                    <text>{{item.housetypename}}</text>
+                                </view>
+                                <view class="money">{{item.houseprice}}元/㎡</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="news" hidden="{{ordertype==2?false:true}}">
+                <block wx:if="{{oldhouselist}}">
+                    <view class="oldlist" wx:for="{{oldhouselist}}" wx:key="index">
+                        <view bindtap="toOldHouseDetail" class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                            <image class="imglabel" src="../../resource/images/oldstatus{{item.salestatus}}.gif" style="width:90rpx;height:90rpx;"></image>
+                        </view>
+                        <view bindtap="toOldHouseDetail" class="title" data-id="{{item.id}}">
+                            <view class="address">
+                              <view class='essisple'>
+                                {{item.title}}
+                              </view>
+                            </view>
+                            <view class="housearea">{{item.housearea}}</view>
+                            <view class="perprice">
+                                     均价{{item.perprice}}元/㎡
+                                     </view>
+                            <view class="price">
+                                <view>
+                                    <text>面积{{item.area}}㎡</text>
+                                    <text>{{item.housetypename}}</text>
+                                    <text>{{item.housestyle}}</text>
+                                </view>
+                                <view class="money"> {{item.saleprice}}万</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="news" hidden="{{ordertype==3?false:true}}">
+                <view class="oldlist" wx:for="{{lethouselist}}">
+                    <view bindtap="toletHouseDetail" class="pic" data-id="{{item.id}}">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                    <view bindtap="toletHouseDetail" class="title" data-id="{{item.id}}">
+                        <view class="address">
+                          <view class='essisple'>
+                            <text></text>
+                            {{item.title}}
+                            </view>
+                        </view>
+                        <view class="housearea">{{item.housearea}}</view>
+                        <view class="perprice">
+                                    {{item.roomtype}}  {{item.payway}} 
+                                </view>
+                        <view class="price">
+                            <view>
+                                <text>面积{{item.area}}㎡</text>
+                                <text>{{item.housetypename}}</text>
+                                <text>{{item.housestyle}}</text>
+                            </view>
+                            <view class="money"> {{item.money}}元/月</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+        <view class="title" style="background:{{intro.maincolor}}">
+            <view></view>
+            <view>发布房源</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <view class="content">
+            <view bindtap="toSaleOldPub" class="item" hidden="{{isoldhouse==0?false:true}}">
+            个人发布二手房
+            </view>
+            <view bindtap="toSalePub" class="item" hidden="{{islethouse==0?false:true}}">
+            个人发布出租房
+            </view>
+            <view bindtap="toSaleBuyPub" class="item" hidden="{{isbuyhouse==0?false:true}}">
+             个人求购房屋
+            </view>
+            <view bindtap="toSaleLetPub" class="item" hidden="{{issalehouse==0?false:true}}">
+             个人求租房屋
+            </view>
+            <view bindtap="PubOldhouse" class="item" hidden="{{isagentoldhouse==0?false:true}}">
+            经纪人发布二手房
+            </view>
+            <view bindtap="PubLethouse" class="item" hidden="{{isagentlethouse==0?false:true}}">
+            经纪人发布出租房
+            </view>
+        </view>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请点击“我知道了”允许授权登录。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-msg-usertel" hidden="{{isphone}}">
+    <view class="weixinmao-content-usertel">
+        <view class="usertel-title">
+          您还没有绑定手机号呢
+        </view>
+        <view class="usertel-content">
+          点击‘获取’按钮，期待与您愉快的沟通~
+        </view>
+        <view class="usertel-button">
+            <button bindtap="cancelPhone">取消</button>
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber">去获取</button>
+        </view>
+    </view>
+</view>

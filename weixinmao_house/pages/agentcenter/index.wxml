@@ -1,0 +1,18 @@
+<view class="container">
+    <view class="container">
+        <view class="weui-grids">
+            <view bindtap="toJoinuser" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <image src="../../resource/img/hm.png"></image>
+                </view>
+                <text class="weui-grid__label">房源管理</text>
+            </view>
+            <view bindtap="toMyteam" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <image src="../../resource/img/yy.png"></image>
+                </view>
+                <text class="weui-grid__label">客户预约</text>
+            </view>
+        </view>
+    </view>
+</view>

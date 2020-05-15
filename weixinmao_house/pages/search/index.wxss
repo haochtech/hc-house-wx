@@ -1,0 +1,137 @@
+.container {
+    background-color: #FFF;
+    min-height: 100%;
+}
+
+.search {
+    display: flex;
+    width: 92%;
+    padding: 10px 4%;
+    background-color: #f5f5f5;
+}
+
+.search input {
+    width: 70%;
+    height: 30px;
+    background-color: #FFF;
+    padding-left: 10%;
+}
+
+.search_plac {
+    font-size: 14px;
+}
+
+.search icon {
+    position: absolute;
+    left: 7%;
+    top: 17px;
+    z-index: 99;
+}
+
+.search button {
+    flex: 1;
+    width: 30px;
+    line-height: 30px;
+    border: 0;
+    color: #fff;
+    background-color: #e62129;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.hot_search {
+    width: 96%;
+    padding: 0 2%;
+}
+
+.hot_search_tit {
+    line-height: 30px;
+}
+
+.hot_search_tit text {
+    padding: 0 2%;
+    font-size: 14px;
+}
+
+.hot_tag {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hot_tag text {
+    width: 20%;
+    line-height: 25px;
+    border: 1px solid #acacac;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    margin: 4px 2%;
+}
+
+.news {
+    margin-top: 10rpx;
+    width: 750rpx;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.news .newstitle {
+    width: 720rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-left: 20rpx;
+    font-size: .7rem;
+    border-bottom: 1rpx solid #ccc;
+    margin: 0 auto;
+}
+
+.news .newslist {
+    display: flex;
+    flex-direction: row;
+    width: 720rpx;
+    margin: 0 auto;
+    border-bottom: 1px solid #F2f2f2;
+}
+
+.news .newslist .pic {
+    width: 30%;
+    height: 180rpx;
+    line-height: 180rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.news .newslist .pic image {
+    width: 250rpx;
+    height: 150rpx;
+}
+
+.news .newslist .title {
+    width: 60%;
+    flex-direction: column;
+    display: flex;
+    height: 150rpx;
+    justify-content: space-between;
+}
+
+.news .newslist .title view {
+    padding-left: 5%;
+    text-align: left;
+}
+
+.news .newslist .title view:nth-child(1) {
+    font-size: .8rem;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.news .newslist .title view:nth-child(2) {
+    font-size: .7rem;
+    height: 20rpx;
+    line-height: 20rpx;
+}

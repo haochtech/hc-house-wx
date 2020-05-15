@@ -1,0 +1,113 @@
+.type-container {
+    width: 100%;
+    height: 88rpx;
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1rpx solid #F2f2f2;
+    padding-bottom: 10rpx;
+}
+
+.type-navbar {
+    white-space: nowrap;
+    height: 88rpx;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.type-box {
+    width: 50%;
+    box-sizing: content-box;
+    font-size: 24rpx;
+    line-height: 84rpx;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.type-navbar-item {
+    border-bottom: 4rpx solid #fff;
+}
+
+.type-item-on {
+    border-bottom: 4rpx solid #e64340;
+}
+
+.container {
+    background-color: #f5f5f5;
+    min-height: 100%;
+}
+
+.container .orderlist {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    background: #FFF;
+    margin-top: 10rpx;
+}
+
+.container .orderlist .orderid {
+    border-bottom: 1rpx solid #efefef;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+    font-size: .8rem;
+    background: #efefef;
+}
+
+.container .orderlist .content {
+    font-size: .8rem;
+    border-bottom: 1rpx solid #efefef;
+}
+
+.container .orderlist .content .item {
+    padding-top: 16rpx;
+    padding-bottom: 16rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx dotted #efefef;
+    display: flex;
+    flex-direction: row;
+}
+
+.container .orderlist .content .payitem {
+    width: 750rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+}
+
+.container .orderlist .content .payitem view {
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin-right: 20rpx;
+    border-radius: 5rpx;
+    background: #3274e5;
+    font-size: .6rem;
+    color: #FFF;
+}
+
+.getuser {
+    width: 750rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.getuser button {
+    width: 650rpx;
+    background: #1aad19;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #FFF;
+    font-size: .8rem;
+    margin-top: 150rpx;
+}

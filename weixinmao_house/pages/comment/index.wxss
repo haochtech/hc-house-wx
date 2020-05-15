@@ -1,0 +1,44 @@
+.comment1-description {
+    padding: 30rpx 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.stars {
+    background: url("https://www.zhenglianqi.com.cn/star_off.png");
+    width: 50rpx;
+    height: 50rpx;
+    background-size: 50rpx 50rpx;
+    margin-left: 30rpx;
+    transition: 600ms;
+}
+
+.on {
+    background: url("https://www.zhenglianqi.com.cn/star_on.png");
+    width: 50rpx;
+    height: 50rpx;
+    background-size: 50rpx 50rpx;
+    transition: 1s;
+    transform: scale(1,1);
+}
+
+.weui-cells_after-title {
+    width: 92%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.btnSf {
+    width: 92%;
+    margin: 30rpx auto;
+}
+
+.btnSf button {
+    background: #3274e5;
+    color: #fff;
+}
+
+.btnSf button:active {
+    background: #3274e5;
+    color: #fff;
+}

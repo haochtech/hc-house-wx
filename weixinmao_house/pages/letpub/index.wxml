@@ -1,0 +1,401 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          选择信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">区 域</view>
+                    <view bindtap="showarea" class="selectitem">{{areaname?areaname:'请选择区域'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">片 区</view>
+                    <view bindtap="showbuildarea" class="selectitem">{{buildareaname?buildareaname:'请选择片区'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">装 修</view>
+                    <view bindtap="showdec" class="selectitem">{{decorate?decorate:'请选择装修'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房类型</view>
+                    <view bindtap="showtype" class="selectitem">{{housetypename?housetypename:'请选择租房类型'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">房间数</view>
+                    <view bindtap="showroom" class="selectitem">{{roomname?roomname:'请选择房间数'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房方式</view>
+                    <view bindtap="showletway" class="selectitem">{{letwayname?letwayname:'请选择租房方式'}}<image src="../../resource/images/arrow-right.png"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">位 置</view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请设置位置" type="text" value="{{map}}"></input>
+                        <button bindtap="getpostion" class="getpos">获取位置</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          基本信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">标 题</view>
+                    <view class="selectitem">
+                        <input name="title" placeholder="请输入标题" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租 金</view>
+                    <view class="selectitem">
+                        <input name="money" placeholder="请输入租金" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">付款方式</view>
+                    <view class="selectitem">
+                        <input name="payway" placeholder="请输入付款方式" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">房 型</view>
+                    <view class="selectitem">
+                        <input name="roomtype" placeholder="请输入房型" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房面积</view>
+                    <view class="selectitem">
+                        <input name="area" placeholder="请输入租房面积" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房楼层</view>
+                    <view class="selectitem">
+                        <input name="floor" placeholder="请输入租房楼层" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房朝向</view>
+                    <view class="selectitem">
+                        <input name="direction" placeholder="请输入租房朝向" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">建房年代</view>
+                    <view class="selectitem">
+                        <input name="year" placeholder="请输入建房年代" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房小区</view>
+                    <view class="selectitem">
+                        <input name="housearea" placeholder="请输入租房小区" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">租房地址</view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请输入租房地址" type="text"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          租房特色
+        </view>
+            <view class="checklist">
+                <checkbox-group bindchange="checkboxChangehouse">
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="拎包即住"></checkbox>拎包即住</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="交通便利"></checkbox>交通便利</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="设施齐全"></checkbox>设施齐全</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="随时看房"></checkbox>随时看房</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="单身公寓"></checkbox>单身公寓</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="精装修"></checkbox> 精装修</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="繁华地段"></checkbox>繁华地段</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="婚房出租"></checkbox> 婚房出租</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="houselabel" value="有钥匙"></checkbox> 有钥匙</view>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          房源配套
+        </view>
+            <view class="checklist">
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="厨房"></checkbox>厨房</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="床"></checkbox>床</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="家具"></checkbox> 家具</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="有线电视"></checkbox>有线电视</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="热水器"></checkbox>热水器</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="宽带网"></checkbox> 宽带网</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="电话"></checkbox>电话</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="饮水机"></checkbox> 饮水机</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="电视机"></checkbox> 电视机</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="冰箱"></checkbox> 冰箱</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="煤气"></checkbox> 煤气</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="车库"></checkbox> 车库</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="天然气"></checkbox>天然气</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="暖气"></checkbox>暖气</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="空调"></checkbox>空调</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="洗衣机"></checkbox>洗衣机</view>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          房源详情描述
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem">
+                        <textarea maxlength="-1" name="content" placeholder="填写房源详情描述"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          图片上传
+       
+        </view>
+            <view class="imglist">
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="1" src="{{imgurl1?imgurl1:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="1" hidden="{{true1}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="2" src="{{imgurl2?imgurl2:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="2" hidden="{{true2}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="3" src="{{imgurl3?imgurl3:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="3" hidden="{{true3}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="4" src="{{imgurl4?imgurl4:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="4" hidden="{{true4}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="5" src="{{imgurl5?imgurl5:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="5" hidden="{{true5}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="6" src="{{imgurl6?imgurl6:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="6" hidden="{{true6}}">
+                        <text>×</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main" style="padding-bottom:120rpx; margin-top:20rpx;">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="font-weight:600;font-size:.7rem;">
+                        <checkbox-group bindchange="doagree">
+                            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《房屋委托出售协议》</text>
+                        </checkbox-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button class="footer" formType="submit" style="background:{{intro.maincolor}}">立即发布</button>
+        </view>
+    </view>
+</form>
+<view class="weixinmao-msg" hidden="{{housemap}}">
+    <view class="weixinmao-content map">
+        <view class="title">
+            <view></view>
+            <view>请选择地图位置</view>
+            <view bindtap="closemap">关闭</view>
+        </view>
+        <view class="list">
+            <map bindregionchange="regionchange" controls="{{controls}}" id="map4select" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="20" style="width:700rpx;height:700rpx"></map>
+        </view>
+        <button bindtap="getmap" class="mapbtn">获取坐标</button>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{areamsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择区域</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selectarea" class="item" data-id="{{item.id}}" data-name="{{item.name}}" wx:for="{{citylist}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{buildmsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择片区</view>
+            <view bindtap="closebuildmsg">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selectbuildarea" class="item" data-id="{{item.id}}" data-name="{{item.name}}" wx:for="{{buildarealist}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{decmsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择装修</view>
+            <view bindtap="closedec">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selectdec" class="item" data-id="简易装修">简易装修</view>
+                <view bindtap="selectdec" class="item" data-id="中档装修">中档装修</view>
+                <view bindtap="selectdec" class="item" data-id="高档装修">高档装修</view>
+                <view bindtap="selectdec" class="item" data-id="豪华装修">豪华装修</view>
+                <view bindtap="selectdec" class="item" data-id="毛坯">毛坯</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{typemsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择房型</view>
+            <view bindtap="closetype">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selecttype" class="item" data-id="1" data-name="住宅">住宅</view>
+                <view bindtap="selecttype" class="item" data-id="2" data-name="别墅">别墅</view>
+                <view bindtap="selecttype" class="item" data-id="3" data-name="公寓">公寓</view>
+                <view bindtap="selecttype" class="item" data-id="4" data-name="商铺">商铺</view>
+                <view bindtap="selecttype" class="item" data-id="5" data-name="写字楼">写字楼</view>
+                <view bindtap="selecttype" class="item" data-id="6" data-name="酒店">酒店</view>
+                <view bindtap="selecttype" class="item" data-id="7" data-name="厂房">厂房</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{roommsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择房间数</view>
+            <view bindtap="closeroom">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selectroom" class="item" data-id="1" data-name="1室">1室</view>
+                <view bindtap="selectroom" class="item" data-id="2" data-name="2室">2室</view>
+                <view bindtap="selectroom" class="item" data-id="3" data-name="3室">3室</view>
+                <view bindtap="selectroom" class="item" data-id="4" data-name="4室">4室</view>
+                <view bindtap="selectroom" class="item" data-id="5" data-name="5室">5室</view>
+                <view bindtap="selectroom" class="item" data-id="6" data-name="6室">6室</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{letwaymsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>请选择租房方式</view>
+            <view bindtap="closeletway">关闭</view>
+        </view>
+        <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:350rpx; left: 0; top:0; bottom: 0; right: 0;">
+            <view class="list">
+                <view bindtap="selectletway" class="item" data-id="1" data-name="整租">整租</view>
+                <view bindtap="selectletway" class="item" data-id="2" data-name="合租">合租</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{ismaster}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>消息提醒</view>
+            <view></view>
+        </view>
+        <view class="list ismaster">
+
+      对不起，您还不是房产经纪人，请先申请入驻再发布！
+
+        
+      
+        </view>
+        <view bindtap="toMessage" class="masterbtn">前往申请</view>
+    </view>
+</view>
+<view class="weixinmao-msg_show" hidden="{{isuser}}">
+    <view class="weixinmao-content_show">
+        <view class="title">
+            <view></view>
+            <view>消息提醒</view>
+            <view></view>
+        </view>
+        <view class="list" style="height:300rpx;">
+            <view class="heaerpic">
+                <image src="{{companyinfo.logo}}"></image>
+                <view>{{companyinfo.name}}</view>
+            </view>
+        </view>
+        <button bindgetuserinfo="bindGetUserInfo" class="masterbtn" openType="getUserInfo">立即授权</button>
+    </view>
+</view>

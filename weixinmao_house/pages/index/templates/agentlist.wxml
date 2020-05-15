@@ -1,0 +1,18 @@
+<template name="agentlist">
+    <view class="news">
+        <view class="newstitle">
+            <view></view>
+            <view>经纪人</view>
+        </view>
+    </view>
+    <view class="type-container_agent">
+        <scroll-view class="type-navbar_agent" scrollX="true" style="width: 100%">
+            <view class="type-box_agent" wx:for="{{agentlist}}">
+                <view bindtap="toAgentDetail" class="type-navbar-item_agent " data-id="{{item.id}}" id="{{item.id}}">
+                    <image src="{{item.thumb}}" style=""></image>
+                </view>
+              {{item.name}}
+              </view>
+        </scroll-view>
+    </view>
+</template>

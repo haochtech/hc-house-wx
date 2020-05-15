@@ -1,0 +1,32 @@
+<canvas canvasId="myCanvas" style="border: 0px solid;width:600px; height:1200px; top:-165555px;  position: absolute; "></canvas>
+<view style="width:750rpx;display:flex;align-item:center;flex-direction:row;">
+    <image src="{{shareImgSrc}}" style="align-self:center;width:750rpx; height:1000rpx;"></image>
+</view>
+<view class="savepic">
+    <button bindgetuserinfo="reload" openType="getUserInfo">重新加载</button>
+    <button bindtap="savepic" hidden="{{savebtn}}">保存图片</button>
+</view>
+
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>

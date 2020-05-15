@@ -1,0 +1,44 @@
+.current {
+    width: 92%;
+    line-height: 28px;
+    padding: 0 4%;
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
+
+.city_type {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 2%;
+}
+
+.city_tag {
+    width: 28%;
+    line-height: 30px;
+    border: 1px solid #acacac;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+    margin: 4px 2%;
+}
+
+.active {
+    border: 1px solid #e62129;
+    color: #e62129;
+}
+
+.aside_letter {
+    position: fixed;
+    top: 58px;
+    right: 0;
+    z-index: 66;
+}
+
+.aside_letter text {
+    display: block;
+    width: 30px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #e62129;
+    text-align: center;
+}

@@ -1,0 +1,87 @@
+<view class="container">
+    <view class="header" style="background:{{intro.maincolor}}">
+        <view hidden="{{!isuser}}">
+            <view class="pic">
+                <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+                <view>{{userinfo.wxInfo.nickName}}</view>
+            </view>
+            <view bindtap="toPaymoney" class="money">账户余额:￥{{score}}</view>
+        </view>
+        <view hidden="{{isuser}}">
+            <view class="pic" bindtap='onLogin'>
+                <image src="../../resource/images/default-avatar.png"></image>
+                <view>点击登录</view>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view bindtap="toMypubs" class="item">
+            <text class="fa fa-home fa-lg"></text>我的发布</view>
+        <view bindtap="toMyhousemsg" class="item">
+            <text class="fa fa-share-alt fa-lg"></text>我的预约</view>
+        <view bindtap="toMycomment" class="item">
+            <text class="fa fa-commenting  fa-lg"></text>我的评论</view>
+        <view bindtap="toMysave" class="item">
+            <text class="fa fa-heart  fa-lg"></text>我的收藏</view>
+        <view bindtap="toMycomplain" class="item">
+            <text class="fa fa-edit  fa-lg"></text>我的投诉</view>
+        <view bindtap="toOrderlist" class="item">
+            <text class="fa fa-list fa-lg"></text>我的订单</view>
+        <view bindtap="toFxuser" class="item">
+            <text class="fa fa-users fa-lg"></text>分销中心</view>
+        <view bindtap="toMyletpub" class="item">
+            <text class="fa fa-cogs  fa-lg"></text>经纪人中心</view>
+    </view>
+</view>
+
+<view class="weixinmao-msg-userinfo" hidden="{{islogin}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请点击“我知道了”允许授权登录。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>
+
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>绑定手机号</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <form bindsubmit="saveuserinfo">
+            <view class="content">
+                <view class="item">
+                    <input class="inputlist" name="name" placeholder="请输入您的姓名" type="text" value="{{user.name}}"></input>
+                </view>
+                <view class="item">
+                    <input class="inputlist" name="tel" placeholder="请输入您的手机号" type="text" value="{{user.tel}}"></input>
+                </view>
+                <view class="item tops">
+                    <button class="bindtel" formType="submit">立即绑定</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>

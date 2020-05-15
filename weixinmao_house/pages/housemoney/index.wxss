@@ -1,0 +1,35 @@
+page,.page,.page__bd {
+    height: 100%;
+}
+
+.page__bd {
+    padding-bottom: 0;
+}
+
+.weui-tab__content {
+    padding-top: 15px;
+}
+
+.page__desc {
+    text-indent: 2em;
+    color: red;
+}
+
+.weui-navbar__title {
+    font-size: .7rem;
+}
+
+.weui-label {
+    font-size: .8rem;
+}
+
+.weui-cell__bd {
+    font-size: .8rem;
+}
+
+.btn-area button {
+    font-size: .7rem;
+    width: 500rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}

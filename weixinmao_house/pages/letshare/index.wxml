@@ -1,0 +1,8 @@
+<canvas canvasId="myCanvas" style="border: 0px solid;width:600px; height:1200px; top:-165555px;  position: absolute; "></canvas>
+<view style="width:750rpx;display:flex;align-item:center;flex-direction:row;">
+    <image src="{{shareImgSrc}}" style="align-self:center;width:750rpx; height:1000rpx;"></image>
+</view>
+<view class="savepic">
+    <button bindgetuserinfo="reload" openType="getUserInfo">重新加载</button>
+    <button bindtap="savepic" hidden="{{savebtn}}">保存图片</button>
+</view>

@@ -1,0 +1,86 @@
+.container {
+    background-color: #FFF;
+    min-height: 100%;
+}
+
+.main {
+    width: 750rpx;
+    display: flex;
+    height: 500rpx;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main image {
+    width: 350rpx;
+    height: 350rpx;
+    align-self: center;
+}
+
+.title {
+    width: 750rpx;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.weixinmao-float {
+    height: 150rpx;
+}
+
+.weixinmao-foot {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.weixinmao-foot view {
+    color: #FFF;
+    align-self: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    border-radius: 0rpx;
+    padding-left: 30rpx;
+}
+
+.weixinmao-foot view:nth-child(1) {
+    color: #FFF;
+    align-self: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: row;
+    background: #e64340;
+}
+
+.weixinmao-foot view:nth-child(2) {
+    color: #FFF;
+    align-self: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: row;
+    background: #1aac19;
+}
+
+.weixinmao-foot view image {
+    width: 70rpx;
+    height: 70rpx;
+    align-self: center;
+}
+
+.intro {
+    padding: 10rpx;
+    font-size: .8rem;
+}

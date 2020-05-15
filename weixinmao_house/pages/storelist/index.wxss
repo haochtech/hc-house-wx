@@ -1,0 +1,80 @@
+page {
+    background-color: #F2f2f2;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.news {
+    margin-top: 10rpx;
+    width: 750rpx;
+    background-color: #F2f2f2;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10rpx;
+}
+
+.news .newslist {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    margin: 0 auto;
+    border-bottom: 1px solid #F2f2f2;
+    border-radius: 5rpx;
+    background: #FFF;
+    margin-bottom: 10rpx;
+    padding: 10rpx;
+}
+
+.news .newslist .pic {
+    width: 30%;
+    height: 200rpx;
+    line-height: 200rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 10rpx;
+}
+
+.news .newslist .pic image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.news .newslist .title {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10rpx;
+}
+
+.news .newslist .title view {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .7rem;
+}
+
+.news .newslist .title>view:nth-child(1) {
+    font-size: .9rem;
+    padding-bottom: 10rpx;
+}
+
+.news .newslist .title>view:nth-child(2) {
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    color: #909090;
+}
+
+.news .newslist .title>view:nth-child(3) {
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    color: #909090;
+}
+
+.news .newslist .title>view:nth-child(4) {
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    color: #909090;
+}

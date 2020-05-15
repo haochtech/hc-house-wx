@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="orderlist" wx:for="{{list}}">
+        <view class="content">
+            <view class="pic">
+                <image src="{{item.avatarUrl}}"></image>
+            </view>
+            <view class="detail">
+                <view class="item">{{item.name}}</view>
+                <view class="item">加入时间:{{item.createtime}}</view>
+            </view>
+        </view>
+    </view>
+</view>

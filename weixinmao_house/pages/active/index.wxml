@@ -1,0 +1,30 @@
+<view class="search">
+    <navigator hoverClass="none" url="../city/index?id=6">
+        <image mode="aspectFit" src="../../resource/images/coord.png"></image>
+        <text>{{city}}</text>
+    </navigator>
+    <view bindtap="toSearch" class="search_box">
+        <icon size="14" type="search"></icon>
+        <text>请输入查询信息</text>
+    </view>
+</view>
+<view style="height:10rpx;"></view>
+<view class="caselist">
+    <view class="caseitem" wx:for="{{list}}">
+        <view bindtap="toActiveDetail" class="pic" data-id="{{item.id}}">
+            <image src="{{item.thumb}}"></image>
+        </view>
+        <view class="title">
+            <view>  {{item.title}}</view>
+            <view>已有{{item.totalnum}}人报名</view>
+        </view>
+    </view>
+</view>
+<view class="loadmore">
+    <text>{{loadMore}}</text>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>

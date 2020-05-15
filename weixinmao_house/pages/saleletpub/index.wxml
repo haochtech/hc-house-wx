@@ -1,0 +1,98 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          求租房屋描述
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="填写建议：户型、位置、租期、租金、特殊要求等 (为了保护隐私，请不要填写手机或QQ)"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+        房屋要求
+        </view>
+            <view class="checklist">
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="中介勿扰"></checkbox>中介勿扰</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="全款买房"></checkbox>拎包入住</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="带车位"></checkbox>带厨卫</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="交通便利"></checkbox>交通便利</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="电梯房"></checkbox>电梯房</view>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          个人信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">联系人</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入联系人" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">电 话</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入电话" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">地 区</view>
+                    <view class="selectitem">
+                        <picker bindchange="bindAreaChange" range="{{arealist}}" rangeKey="name" value="{{Index}}">
+                            <view class="picker">  
+
+        {{arealist[areaidindex].name?arealist[areaidindex].name:'请选择地区'}}
+    </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">付费信息</view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">置顶信息</view>
+                    <view class="selectitem">
+                        <picker bindchange="bindToplistChange" range="{{toplist}}" rangeKey="title" value="{{Index}}">
+                            <view class="picker">  
+
+                                          {{toplist[toplistidindex].title?toplist[toplistidindex].title:'选择后信息将显示在最顶部'}}
+                                      </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main" style="padding-bottom:120rpx; margin-top:20rpx;">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="font-weight:600;font-size:.7rem;">
+                        <checkbox-group bindchange="doagree">
+                            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《房屋委托出售协议》</text>
+                        </checkbox-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button bindgetuserinfo="bindGetUserInfo" class="footer" hidden="{{isuser}}" openType="getUserInfo" style="background:{{intro.maincolor}}">立即发布</button>
+            <button class="footer" formType="submit" hidden="{{!isuser}}" style="background:{{intro.maincolor}}">立即发布</button>
+        </view>
+    </view>
+</form>

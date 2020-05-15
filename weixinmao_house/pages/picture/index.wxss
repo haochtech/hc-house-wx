@@ -1,0 +1,85 @@
+.title {
+    height: 30px;
+    text-align: center;
+}
+
+.case {
+    margin-top: 10rpx;
+    width: 750rpx;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.case .casetitle {
+    width: 750rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 20rpx;
+    font-size: .7rem;
+    border-bottom: 1rpx solid #efefef;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.case .casetitle view:nth-child(1) {
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 6rpx;
+    background: red;
+    align-self: center;
+}
+
+.case .casetitle view:nth-child(2) {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 150rpx;
+    padding-left: 15rpx;
+}
+
+.case .caselist {
+    display: flex;
+    flex-direction: row;
+    width: 750rpx;
+    margin: 0 auto;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex-wrap: wrap;
+}
+
+.case .caselist .caseitem {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20rpx;
+}
+
+.case .caselist .caseitem .pic {
+    height: 220rpx;
+    line-height: 220rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.case .caselist .caseitem .pic image {
+    width: 320rpx;
+    height: 220rpx;
+}
+
+.case .caselist .caseitem .title {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: .7rem;
+    padding-top: 10rpx;
+    color: #3e3e3e;
+}
+
+.case .content {
+    font-size: .8rem;
+    padding: 20rpx;
+    text-indent: 50rpx;
+    color: #6a6a6a;
+}

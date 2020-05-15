@@ -1,0 +1,201 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<scroll-view class="scr" scrollIntoView="{{toView}}" scrollWithAnimation="true" scrollY="true">
+    <view class="container">
+        <view class="swiper-container">
+            <swiper autoplay="{{autoplay}}" bindchange="bindchange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;">
+                <swiper-item wx:for="{{piclist}}">
+                    <image bindload="imageLoad" class="slide-image" data-id="" src="{{item}}" style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;"></image>
+                </swiper-item>
+            </swiper>
+            <view class="dots">
+                <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+                <view>{{data.housename}}</view>
+                <view class="price">
+                    <view>均价{{data.houseprice}}元/㎡</view>
+                    <view>总评分:{{score}}</view>
+                    <view>
+                        <button bindtap="toHousemoney">房贷计算器</button>
+                    </view>
+                </view>
+            </view>
+            <view class="address">
+                <view>开 发 商:{{data.companyname}}</view>
+                <view>项目地址:{{data.houseaddress}}</view>
+                <view>售楼地址:{{data.housesaleaddress}}</view>
+                <view>发布时间:<text>{{data.createtime}}</text>
+                </view>
+            </view>
+            <view class="special">
+                <text wx:for="{{data.speciallist}}">{{item}}</text>
+            </view>
+        </view>
+        <view class="agentinfo">
+            <view class="left">
+                <view class="headpic">
+                    <image src="{{piclist[0]}}"></image>
+                </view>
+                <view class="username">
+                    <view>购房热线 </view>
+                    <view>{{data.tel}}</view>
+                </view>
+            </view>
+            <view class="right">
+                <view bindtap="doCall" class="contact" data-tel="{{data.tel}}">
+                    <view>
+                        <text class="fa fa-phone fa-lg"></text>
+                    </view>
+                    <view>联系销售</view>
+                </view>
+            </view>
+        </view>
+        <view class="contentlist">
+            <view class="listitem">
+                <view class="items">占地面积:<text>{{data.housecovered}}万㎡</text>
+                </view>
+                <view class="items">建筑面积:<text>{{data.buildarea}}万㎡</text>
+                </view>
+                <view class="items">容积率:<text>{{data.houserate}}</text>
+                </view>
+                <view class="items">绿化率:<text>{{data.housegreenrate}}</text>
+                </view>
+                <view class="items">开盘时间:<text>{{data.opensaletime}}</text>
+                </view>
+                <view class="items">入驻时间:<text>{{data.staytime}}</text>
+                </view>
+                <view class="items">项目特色:<text>{{data.specialliststr}}</text>
+                </view>
+                <view class="items">所属学区:<text>{{data.houseschool}}</text>
+                </view>
+                <view class="items">附近公交:<text>{{data.housebus}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="contentlist">
+            <view class="title">
+                <view></view>
+                <view>楼盘相册</view>
+            </view>
+        </view>
+        <view class="type-container">
+            <scroll-view class="type-navbar" scrollX="true" style="width: 100%">
+                <view class="type-box" wx:for="{{housepic}}">
+                    <view bindtap="toPicDetail" class="type-navbar-item " data-id="{{item.id}}" data-typeid="1">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="contentlist">
+            <view class="title">
+                <view></view>
+                <view>楼盘户型</view>
+            </view>
+        </view>
+        <view class="type-container">
+            <scroll-view class="type-navbar" scrollX="true" style="width: 100%">
+                <view class="type-box" wx:for="{{houseplan}}">
+                    <view bindtap="toPicDetail" class="type-navbar-item " data-id="{{item.id}}" data-typeid="0">
+                        <view>
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view> {{item.title}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="news" wx:if="{{activelist}}">
+            <view class="newstitle">
+                <view style="background:{{intro.maincolor}}"></view>
+                <view>最新活动</view>
+            </view>
+            <view class="newslist" wx:for="{{activelist}}" wx:key="index">
+                <view bindtap="toActiveDetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toActiveDetail" class="title" data-id="{{item.id}}">
+                    <view class="address">
+                        <view>{{item.title}}</view>
+                    </view>
+                    <view class="price">
+                        <view></view>
+                        <view class="money">已有{{item.totalnum}}人报名</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="contentlist" wx:if="{{data.video}}">
+            <view class="title">
+                <view></view>
+                <view>房源视频</view>
+            </view>
+            <view class="listitem">
+                <video src="{{data.video}}" style="width:750rpx;"></video>
+            </view>
+        </view>
+        <view class="contentlist">
+            <view class="title">
+                <view></view>
+                <view>楼盘详情</view>
+            </view>
+            <view class="intro">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+            </view>
+        </view>
+        <view class="contentlist">
+            <view class="title" id="comment">
+                <view></view>
+                <view>全部评论</view>
+            </view>
+            <view class="commentlist" wx:for="{{commentlist}}" wx:key="index">
+                <view class="commentpic">
+                    <image src="{{item.avatarUrl}}"></image>
+                </view>
+                <view class="commenttitle">
+                    <view class="addresstop">{{item.wechaname}}</view>
+                    <view class="content">
+                                                {{item.content}}
+                                              </view>
+                    <view class="time">
+                        <view>{{item.createtime}}</view>
+                        <view></view>
+                    </view>
+                </view>
+            </view>
+            <view class="pubcomment">
+                <button bindtap="toComment" data-id="{{data.id}}">发表评论...</button>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="savehouse" class="footer">
+            <text class="fa {{issave==1?'fa-star':'fa-star-o'}} fa-lg"></text>
+            <view>收藏</view>
+        </view>
+        <view bindtap="jumpTo" class="footer" data-opt="comment">
+            <text class="fa fa-comments fa-lg"></text>
+            <view>查看评论</view>
+        </view>
+        <view bindtap="goMap" class="footer">
+            <text class="fa fa-map-marker fa-lg"></text>
+            <view>地图导航</view>
+        </view>
+        <view bindtap="goMessage" class="footer" data-typeid="0">预约看房</view>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="redirect" url="/weixinmao_house/pages/newshare/index?id={{data.id}}">
+        <view class="iconfont fa fa-share-alt"></view>
+    </navigator>
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_house/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+    <navigator bindtap="goMap" class="u-go-home">
+        <view class="iconfont fa fa-location-arrow"></view>
+    </navigator>
+</view>

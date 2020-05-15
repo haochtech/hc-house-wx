@@ -1,0 +1,2 @@
+<map bindregionchange="regionchange" controls="{{controls}}" id="map4select" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="20" style="width:{{map_width}}px;height:{{map_height}}px"></map>
+<button bindtap="getmap">获取</button>

@@ -1,0 +1,37 @@
+<view class="container">
+    <view hidden="{{isuser}}">
+        <view class="getuser">
+            <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">获取用户信息</button>
+        </view>
+    </view>
+    <view hidden="{{!isuser}}">
+        <view class="orderlist" wx:for="{{list}}">
+            <view class="orderid">编 号:{{item.id}}</view>
+            <view class="content">
+                <view class="item">房源类型:  
+          <block wx:if="{{item.type=='newhouse'}}">
+              新楼盘
+         </block>
+                    <block wx:elif="{{item.type=='oldhouse'}}">
+            二手房
+          </block>
+                    <block wx:else>
+
+          出租房
+
+          </block>
+                </view>
+                <view class="item">所属房源: {{item.title}}</view>
+                <view class="item" wx:if="{{item.type=='newhouse'}}">户 型:{{item.houseplan}}</view>
+                <view class="item">备 注: {{item.content}}</view>
+                <view class="item">创建时间: {{item.createtime}}</view>
+                <view class="payitem">
+                    <block wx:if="{{item.type=='newhouse'}}">
+                        <view bindtap="toPayOrder" data-id="{{item.id}}" wx:if="{{item.paystatus==0}}">我要支付</view>
+                    </block>
+                    <view bindtap="toComment" data-id="{{item.id}}">我要评价</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

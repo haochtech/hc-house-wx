@@ -1,0 +1,81 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          个人基本信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">姓 名</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入姓名" type="text" value="{{noteinfo.name?noteinfo.name:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 手 机</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入手机号码" type="text" value="{{noteinfo.tel?noteinfo.tel:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">微 信</view>
+                    <view class="selectitem">
+                        <input name="qq" placeholder="请输入微信号" type="text" value="{{noteinfo.email?noteinfo.email:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 地 址</view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请输入地址" type="text" value="{{noteinfo.address?noteinfo.address:''}}"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          自我介绍及工作经历
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="请填写自我介绍及工作经历" value="{{noteinfo.content}}"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          个人形象
+        </view>
+            <view class="imglist">
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="1" src="{{imgurl1?imgurl1:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="1" hidden="{{true1}}">
+                        <text>×</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button class="footer" formType="submit" style="background:{{intro.maincolor}}">提交申请</button>
+        </view>
+    </view>
+</form>
+<view class="weixinmao-msg_show" hidden="{{isuser}}">
+    <view class="weixinmao-content_show">
+        <view class="title">
+            <view></view>
+            <view>消息提醒</view>
+            <view></view>
+        </view>
+        <view class="list" style="height:300rpx;">
+            <view class="heaerpic">
+                <image src="{{companyinfo.logo}}"></image>
+                <view>{{companyinfo.name}}</view>
+            </view>
+        </view>
+        <button bindgetuserinfo="bindGetUserInfo" class="masterbtn" openType="getUserInfo">立即授权</button>
+    </view>
+</view>

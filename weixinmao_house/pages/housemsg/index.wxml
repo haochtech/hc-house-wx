@@ -1,0 +1,51 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="name">所属房源</view>
+                    <view class="selectitem">
+                        <input disabled="true" name="name" placeholder="" type="text" value="{{data.housename}}"></input>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{typeid==0}}">
+                    <view class="name">户 型</view>
+                    <view class="selectitem">
+                        <picker bindchange="bindToplistChange" range="{{toplist}}" rangeKey="title" value="{{Index}}">
+                            <view class="picker">  
+
+                                          {{toplist[toplistidindex].title?toplist[toplistidindex].title:'请选择楼盘户型'}}
+                                      </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">联 系 人</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请填写联系人" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">联系电话</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请填写联系电话" type="text"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="备注[选填]"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button class="footer" formType="submit">{{showtip}}</button>
+            </view>
+        </view>
+    </view>
+</form>

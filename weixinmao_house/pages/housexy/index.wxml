@@ -1,0 +1,9 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<view class="container">
+    <view class="title">
+        <view>房源发布协议</view>
+    </view>
+    <view class="content">
+        <rich-text nodes="{{data.content}}"></rich-text>
+    </view>
+</view>

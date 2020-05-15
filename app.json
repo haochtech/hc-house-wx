@@ -1,0 +1,133 @@
+{
+    "pages": [
+        "weixinmao_house/pages/index/index",
+        "weixinmao_house/pages/letbusinesshouselist/index",
+        "weixinmao_house/pages/oldsalehouselist/index",
+        "weixinmao_house/pages/oldpayhouselist/index",
+        "weixinmao_house/pages/agentlist/index",
+        "weixinmao_house/pages/message/index",
+        "weixinmao_house/pages/joinuser/index",
+        "weixinmao_house/pages/housexy/index",
+        "weixinmao_house/pages/storelist/index",
+        "weixinmao_house/pages/paymoney/index",
+        "weixinmao_house/pages/comment/index",
+        "weixinmao_house/pages/housemsg/index",
+        "weixinmao_house/pages/housemoney/index",
+        "weixinmao_house/pages/housemoney/detail/detail",
+        "weixinmao_house/pages/getuserinfo/index",
+        "weixinmao_house/pages/fxuser/index",
+        "weixinmao_house/pages/test/index",
+        "weixinmao_house/pages/myteam/index",
+        "weixinmao_house/pages/share/index",
+        "weixinmao_house/pages/salelist/index",
+        "weixinmao_house/pages/pub/index",
+        "weixinmao_house/pages/letpub/index",
+        "weixinmao_house/pages/salepub/index",
+        "weixinmao_house/pages/salebuypub/index",
+        "weixinmao_house/pages/saleletpub/index",
+        "weixinmao_house/pages/saleoldpub/index",
+        "weixinmao_house/pages/map/index",
+        "weixinmao_house/pages/article/index",
+        "weixinmao_house/pages/newsdetail/index",
+        "weixinmao_house/pages/picdetail/index",
+        "weixinmao_house/pages/lethouselist/index",
+        "weixinmao_house/pages/oldhouselist/index",
+        "weixinmao_house/pages/oldhousedetail/index",
+        "weixinmao_house/pages/done/index",
+        "weixinmao_house/pages/search/index",
+        "weixinmao_house/pages/newhousedetail/index",
+        "weixinmao_house/pages/newhouselist/index",
+        "weixinmao_house/pages/lethousedetail/index",
+        "weixinmao_house/pages/agentdetail/index",
+        "weixinmao_house/pages/activedetail/index",
+        "weixinmao_house/pages/active/index",
+        "weixinmao_house/pages/user/index",
+        "weixinmao_house/pages/orderlist/index",
+        "weixinmao_house/pages/myletpub/index",
+        "weixinmao_house/pages/saledetail/index",
+        "weixinmao_house/pages/mysalepub/index",
+        "weixinmao_house/pages/letshare/index",
+        "weixinmao_house/pages/newshare/index",
+        "weixinmao_house/pages/mypub/index",
+        "weixinmao_house/pages/myspread/index",
+        "weixinmao_house/pages/myjoin/index",
+        "weixinmao_house/pages/moneyrecord/index",
+        "weixinmao_house/pages/fxhouse/index",
+        "weixinmao_house/pages/fxnewshare/index",
+        "weixinmao_house/pages/fxrecord/index",
+        "weixinmao_house/pages/storedetail/index",
+        "weixinmao_house/pages/myhousemsg/index",
+        "weixinmao_house/pages/payhouse/index",
+        "weixinmao_house/pages/complain/index",
+        "weixinmao_house/pages/mycomment/index",
+        "weixinmao_house/pages/mycomplain/index",
+        "weixinmao_house/pages/city/index",
+        "weixinmao_house/pages/saveuser/index",
+        "weixinmao_house/pages/businesshousedetail/index",
+        "weixinmao_house/pages/businesshouselist/index",
+        "weixinmao_house/pages/fxoldhousedetail/index",
+        "weixinmao_house/pages/fxnewhousedetail/index",
+        "weixinmao_house/pages/fxlethousedetail/index",
+        "weixinmao_house/pages/mysave/index",
+        "weixinmao_house/pages/agentcenter/index",
+        "weixinmao_house/pages/guestmsg/index",
+        "weixinmao_house/pages/oldpayhousedetail/index",
+        "weixinmao_house/pages/oldsalehousedetail/index",
+        "weixinmao_house/pages/letbusinesshousedetail/index",
+        "weixinmao_house/pages/fxoldshare/index",
+        "weixinmao_house/pages/fxletshare/index"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示",
+            "provider": "string"
+        }
+    },
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "房屋出售",
+        "navigationBarBackgroundColor": "#fff",
+        "backgroundColor": "white",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#6e6d6b",
+        "selectedColor": "#44b549",
+        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "box-shadow": "0 0 6px 0",
+        "list": [
+            {
+                "pagePath": "weixinmao_house/pages/index/index",
+                "text": "首页",
+                "iconPath": "weixinmao_house/resource/images/nav/home-off.png",
+                "selectedIconPath": "weixinmao_house/resource/images/nav/home-on.png"
+            },
+            {
+                "pagePath": "weixinmao_house/pages/newhouselist/index",
+                "text": "最新楼盘",
+                "iconPath": "weixinmao_house/resource/images/nav/news-off.png",
+                "selectedIconPath": "weixinmao_house/resource/images/nav/news-on.png"
+            },
+            {
+                "pagePath": "weixinmao_house/pages/oldhouselist/index",
+                "text": "二手房",
+                "iconPath": "weixinmao_house/resource/images/nav/er-off.png",
+                "selectedIconPath": "weixinmao_house/resource/images/nav/er-on.png"
+            },
+            {
+                "pagePath": "weixinmao_house/pages/article/index",
+                "text": "房产资讯",
+                "iconPath": "weixinmao_house/resource/images/nav/order-off.png",
+                "selectedIconPath": "weixinmao_house/resource/images/nav/order-on.png"
+            },
+            {
+                "pagePath": "weixinmao_house/pages/user/index",
+                "text": "会员中心",
+                "iconPath": "weixinmao_house/resource/images/nav/user-off.png",
+                "selectedIconPath": "weixinmao_house/resource/images/nav/user-on.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,45 @@
+<view class="search">
+    <navigator hoverClass="none" url="../city/city">
+        <image mode="aspectFit" src="../../resource/images/coord.png"></image>
+        <text>{{city}}</text>
+    </navigator>
+    <view bindtap="toSearch" class="search_box">
+        <icon size="14" type="search"></icon>
+        <text>请输入查询信息</text>
+    </view>
+</view>
+s
+
+
+
+
+
+
+
+<view style="height:30px;"></view>
+<view class="newslist">
+    <view class="pic">
+        <image src="{{list.avatarUrl}}"></image>
+    </view>
+    <view class="title">
+        <view class="address">
+            <view>{{list.type}}</view>
+            <view>{{list.name}}</view>
+            <view bindtap="doCall" class="dotel" data-tel="{{list.tel}}">
+                <image src="../../resource/images/telnew.png"></image>拨打电话</view>
+        </view>
+        <view class="special" wx:if="{{list.special}}">
+            <view wx:for="{{list.special}}" wx:for-item="itemspecial">{{itemspecial}}</view>
+        </view>
+        <view class="content">
+                                    {{list.content}}
+                                  </view>
+        <view class="time">
+            <view>{{list.createtime}}</view>
+            <view>{{list.hits}}浏览</view>
+        </view>
+        <view class="piclist" wx:if="{{piclist}}">
+            <image src="{{itempic}}" wx:for="{{piclist}}" wx:for-item="itempic"></image>
+        </view>
+    </view>
+</view>

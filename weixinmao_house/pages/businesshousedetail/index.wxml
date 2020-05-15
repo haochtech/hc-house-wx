@@ -1,0 +1,146 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="bindchange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;">
+            <swiper-item wx:for="{{piclist}}">
+                <image bindload="imageLoad" class="slide-image" data-id="" src="{{item}}" style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="title">
+            <view class="housetitle">
+                <view>
+                    <text>{{data.source==0?'【个人】':'【中介】'}} </text>{{data.title}}</view>
+                <view>
+                    <button bindtap="toHousemoney">房贷计算器</button>
+                </view>
+            </view>
+            <view class="price">
+                <view>总价{{data.saleprice}}万  均价{{data.perprice}}元/㎡</view>
+                <view>{{data.housestyle}}</view>
+            </view>
+        </view>
+        <view class="address">
+            <view>所在小区:{{data.housearea}}</view>
+            <view>所在地址:{{data.address}}</view>
+        </view>
+        <view class="special">
+            <text wx:for="{{data.speciallist}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="agentinfo">
+        <view class="left">
+            <view class="headpic">
+                <image src="{{agentinfo.thumb}}"></image>
+            </view>
+            <view class="username">
+                <view>{{agentinfo.name}} </view>
+                <view>{{agentinfo.tel}}</view>
+            </view>
+        </view>
+        <view class="right">
+            <view bindtap="doCall" class="contact" data-tel="{{agentinfo.tel}}">
+                <view>
+                    <text class="fa fa-phone fa-lg"></text>
+                </view>
+                <view>联系经纪人</view>
+            </view>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>房源介绍</view>
+        </view>
+        <view class="listitem">
+            <view class="items">面积:<text>{{data.area}}㎡</text>
+            </view>
+            <view class="items">楼层:<text>{{data.floor}}</text>
+            </view>
+            <view class="items">朝向:<text>{{data.direction}}</text>
+            </view>
+            <view class="items">装修:<text>{{data.decorate}}</text>
+            </view>
+            <view class="items">年代:<text>{{data.year}}</text>
+            </view>
+            <view class="items">发布时间:<text>{{data.createtime}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="contentlist" wx:if="{{data.video}}">
+        <view class="title">
+            <view></view>
+            <view>房源视频</view>
+        </view>
+        <view class="listitem">
+            <video src="{{data.video}}" style="width:750rpx;"></video>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>详情介绍</view>
+        </view>
+        <view class="intro">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>相关房源</view>
+        </view>
+    </view>
+    <view class="oldlist" wx:for="{{oldhouselist}}" wx:key="index">
+        <view bindtap="toOldHouseDetail" class="pic" data-id="{{item.id}}">
+            <image src="{{item.thumb}}"></image>
+        </view>
+        <view bindtap="toOldHouseDetail" class="title" data-id="{{item.id}}">
+            <view class="address">
+                <view>
+                    <text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+            </view>
+            <view class="housearea">{{item.housearea}}</view>
+            <view class="perprice">
+                                     均价{{item.perprice}}元/㎡
+                                     </view>
+            <view class="price">
+                <view>
+                    <text>面积{{item.area}}㎡</text>
+                    <text>{{item.housetypename}}</text>
+                    <text>{{item.housestyle}}</text>
+                </view>
+                <view class="money"> {{item.saleprice}}万</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="savehouse" class="footer">
+            <text class="fa {{issave==1?'fa-star':'fa-star-o'}} fa-lg"></text>
+            <view>收藏</view>
+        </view>
+        <view bindtap="toAgentDetail" class="footer" data-id="{{agentinfo.id}}">
+            <text class="fa fa-home fa-lg"></text>
+            <view>Ta的房源</view>
+        </view>
+        <view bindtap="goMap" class="footer">
+            <text class="fa fa-map-marker fa-lg"></text>
+            <view>地图导航</view>
+        </view>
+        <view bindtap="goMessage" class="footer" data-typeid="1">预约看房</view>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="redirect" url="/weixinmao_house/pages/share/index?id={{data.id}}">
+        <view class="iconfont fa fa-share-alt"></view>
+    </navigator>
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_house/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+</view>

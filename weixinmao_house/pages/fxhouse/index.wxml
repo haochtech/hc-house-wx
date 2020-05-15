@@ -1,0 +1,99 @@
+<view class="news">
+    <view class="newstitle">
+        <view></view>
+        <view>分销房源</view>
+    </view>
+</view>
+<view class="type-container_switch">
+    <scroll-view class="type-navbar_switch" scrollX="true">
+        <view class="type-box_switch">
+            <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==1?'type-item-on_switch':''}}" id="1">
+                    最新楼盘
+                </view>
+        </view>
+        <view class="type-box_switch">
+            <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==2?'type-item-on_switch':''}}" id="2">
+                    买卖房源
+                </view>
+        </view>
+        <view class="type-box_switch">
+            <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==3?'type-item-on_switch':''}}" id="3">
+                  房屋出租
+                </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="news" hidden="{{ordertype==1?false:true}}">
+    <block wx:if="{{newhouselist}}">
+        <view class="newslist" wx:for="{{newhouselist}}" wx:key="index">
+            <view bindtap="toNewHouseDetail" class="pic" data-id="{{item.id}}">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="title" data-id="{{item.id}}">
+                <view class="address">
+                    <view>{{item.housename}}</view>
+                    <view>{{item.companyname}}</view>
+                    <view>{{item.houseaddress}}</view>
+                </view>
+                <view class="price">
+                    <view>
+                        <text>{{item.areaname}}</text>
+                    </view>
+                    <view class="money">最高佣金{{item.fxmoney}}元</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="news" hidden="{{ordertype==2?false:true}}">
+    <block wx:if="{{oldhouselist}}">
+        <view class="oldlist" wx:for="{{oldhouselist}}" wx:key="index">
+            <view bindtap="toOldHouseDetail" class="pic" data-id="{{item.id}}">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view bindtap="toOldHouseDetail" class="title" data-id="{{item.id}}">
+                <view class="address">
+                    <view>
+                        <text></text>{{item.title}}</view>
+                </view>
+                <view class="housearea">{{item.housearea}}</view>
+                <view class="perprice">
+                                     最高佣金{{item.fxmoney}}元
+                                     </view>
+                <view class="price">
+                    <view>
+                        <text>面积{{item.area}}㎡</text>
+                        <text>{{item.housetypename}}</text>
+                        <text>{{item.housestyle}}</text>
+                    </view>
+                    <view class="money"> {{item.saleprice}}万</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="news" hidden="{{ordertype==3?false:true}}">
+    <view class="oldlist" wx:for="{{lethouselist}}">
+        <view bindtap="toletHouseDetail" class="pic" data-id="{{item.id}}">
+            <image src="{{item.thumb}}"></image>
+        </view>
+        <view bindtap="toletHouseDetail" class="title" data-id="{{item.id}}">
+            <view class="address">
+                <view>
+                    <text></text>{{item.title}}</view>
+            </view>
+            <view class="housearea">{{item.housearea}}</view>
+            <view class="perprice">
+                                  最高佣金 {{item.fxmoney}} 元
+                                </view>
+            <view class="price">
+                <view>
+                    <text>面积{{item.area}}㎡</text>
+                    <text>{{item.housetypename}}</text>
+                    <text>{{item.housestyle}}</text>
+                </view>
+                <view class="money"> {{item.money}}元/月</view>
+            </view>
+        </view>
+    </view>
+</view>

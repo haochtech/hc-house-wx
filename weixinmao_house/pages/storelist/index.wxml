@@ -1,0 +1,15 @@
+<view class="container">
+    <view class="news">
+        <view bindtap="toStoredetail" class="newslist" data-id="{{item.id}}" wx:for="{{storelist}}">
+            <view class="pic">
+                <image src="{{item.logo}}"></image>
+            </view>
+            <view class="title">
+                <view>{{item.name}}</view>
+                <view>地址：{{item.address}}</view>
+                <view>联系人：{{item.email}}</view>
+                <view>联系电话：{{item.tel}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+<view class="search">
+    <navigator hoverClass="none" url="../city/index?id=5">
+        <image mode="aspectFit" src="../../resource/images/coord.png"></image>
+        <text>{{city}}</text>
+    </navigator>
+    <view bindtap="toSearch" class="search_box">
+        <icon size="14" type="search"></icon>
+        <text>请输入查询信息</text>
+    </view>
+</view>
+<view style="height:10rpx;"></view>
+<block wx:if="{{list}}">
+    <view class="newslist" wx:for="{{list}}">
+        <view class="sort">
+            <image src="../../resource/images/jin.png" wx:if="{{index==0}}"></image>
+            <image src="../../resource/images/yin.png" wx:elif="{{index==1}}"></image>
+            <image src="../../resource/images/tong.png" wx:elif="{{index==2}}"></image>
+            <block wx:else>
+
+{{index+1}}
+
+         </block>
+        </view>
+        <view bindtap="toAgentDetail" class="pic" data-id="{{item.id}}">
+            <image src="{{item.thumb}}"></image>
+        </view>
+        <view class="title">
+            <view bindtap="toAgentDetail" class="address" data-id="{{item.id}}">
+                <view>{{item.name}}</view>
+            </view>
+            <view class="housearea"> {{item.intro}}  </view>
+            <view class="perprice">
+                <view bindtap="doCall" data-tel="{{item.tel}}">
+                    <image src="../../resource/images/tel.png"></image>  拨号 </view>
+                <view></view>
+                <view>
+                    <image src="../../resource/images/view.png"></image> {{item.view}} </view>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="loadmore">
+    <text>{{loadMore}}</text>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>

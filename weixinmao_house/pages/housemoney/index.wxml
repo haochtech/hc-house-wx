@@ -1,0 +1,91 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" style="border:0px;">
+                <view bindtap="tabClick" class="weui-navbar__item {{activeIndex==index?'weui-bar__item_on':''}}" id="{{index}}" wx:for="{{tabs}}" wx:key="*this">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </view>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content">
+                    <view class="page-section">
+                        <view class="weui-cells weui-cells_after-title">
+                            <view class="weui-cell weui-cell_select" hidden="{{activeIndex==1}}">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">商业贷利率：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker bindchange="rateChange0" range="{{ratesName[0]}}" value="{{rateIndex0}}">
+                                        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[0][rateIndex0]}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_select" hidden="{{activeIndex==0}}">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">公积金利率：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker bindchange="rateChange1" range="{{ratesName[1]}}" value="{{rateIndex1}}">
+                                        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[1][rateIndex1]}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_select">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">贷款年限：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker bindchange="yearChange" range="{{years}}" value="{{yearIndex}}">
+                                        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{years[yearIndex]}}年</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_select" hidden="{{activeIndex==2}}">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">计算方式：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker bindchange="loanChange" range="{{loansType}}" value="{{loanIndex}}">
+                                        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{loansType[loanIndex]}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_select" hidden="{{loanIndex!=0||activeIndex==2}}">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">贷款比例：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker bindchange="percentChange" range="{{percentArr}}" value="{{percentIndex}}">
+                                        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{percentArr[percentIndex]}}成</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_input" hidden="{{activeIndex==1}}">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label">商业总额：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <input bindinput="commercialTotalChange" class="weui-input" name="data0" placeholder="请输入总额" type="digit" value="{{commercialTotal}}"></input>
+                                </view>
+                                <view class="weui-cell__bd weui-cell__ft">元</view>
+                            </view>
+                            <view class="weui-cell weui-cell_input" hidden="{{activeIndex==0}}">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label">公积金总额：</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <input bindinput="gjjTotalChange" class="weui-input" name="data1" placeholder="请输入总额" type="digit" value="{{gjjTotal}}"></input>
+                                </view>
+                                <view class="weui-cell__bd weui-cell__ft">元</view>
+                            </view>
+                        </view>
+                        <view class="btn-area">
+                            <button bindtap="showDetail" disabled="{{activeIndex==2?!(commercialTotal&&gjjTotal):activeIndex==1?!gjjTotal:!commercialTotal}}" style="width:700rpx;background:#3274e5;color:#fff; margin-top:60rpx;font-size:1rem;">立即计算</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="orderlist" wx:for="{{list}}">
+        <view class="orderid" style="color:red;font-weight:bold;">编 号:{{item.id}}</view>
+        <view class="content">
+            <view class="item">于{{item.createtime}} 投诉经纪人【 {{item.agentname}} 】：“{{item.content}}”</view>
+            <view class="item">状态:
+           <block wx:if="{{item.status==0}}">
+            未处理
+             </block>
+                <block wx:if="{{item.status==1}}">
+            已处理完成
+             </block>
+            </view>
+            <view class="payitem">
+                <view bindtap="delOrder" data-id="{{item.id}}" hidden="{{item.status==-1?true:false}}">删除投诉</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,118 @@
+.balance-demo {
+    padding: 40rpx 0 30rpx 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 750rpx;
+}
+
+.balance-demo button {
+    display: inline-block;
+    width: 300rpx;
+    height: 120rpx;
+    margin: 10rpx 35rpx;
+    background-color: transparent;
+}
+
+.balance-demo button[data-id="5"] {
+    padding-top: 30rpx;
+}
+
+.balance-demo button.selected {
+    background-color: #3274e5;
+    color: #fff;
+}
+
+.balance-demo button text {
+    display: block;
+    line-height: 60rpx;
+}
+
+.balance-demo button .botton {
+    color: #3274e5;
+}
+
+.balance-demo button text.selected {
+    color: #fff;
+}
+
+.other-button-hover {
+    background-color: yellow;
+}
+
+.goblance {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 80rpx;
+    padding: 0 30rpx 0 30rpx;
+    background-color: #eee;
+    text-align: center;
+}
+
+.goblance .txt_t {
+    color: #808080;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.goblance navigator {
+    display: inline-block;
+    color: #0033FF;
+}
+
+.goblance button[disabled="false"] {
+    color: #fff;
+}
+
+.goblance button {
+    color: #fff;
+    margin: 20rpx 15rpx;
+    background-color: #3274e5;
+    font-size: .8rem;
+    width: 500rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.scorelist {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scorelist .title {
+    width: 720rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: .7rem;
+    border-bottom: 1rpx dotted #808080;
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+}
+
+.scorelist .title view {
+    width: 20%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.scorelist .list {
+    width: 720rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: .7rem;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    border-bottom: 1rpx dotted #808080;
+}
+
+.scorelist .list view {
+    width: 20%;
+    text-align: center;
+}

@@ -1,0 +1,76 @@
+<view class="container">
+    <view class="header" style="background:{{intro.maincolor}}">
+        <view class="pic" wx:if="{{userinfo.wxInfo}}">
+            <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+            <view>{{userinfo.wxInfo.nickName}}</view>
+        </view>
+        <view class="pic" wx:else catchtap='onLogin'>
+            <image src="../../resource/images/default-avatar.png"></image>
+            <view>点击登录</view>
+        </view>
+    </view>
+    <view class="container">
+        <view class="weui-grids">
+            <view bindtap="toJoinuser" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-sitemap fa-lg" style="font-size:4rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">申请加入</text>
+            </view>
+            <view bindtap="toMyteam" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-users fa-lg" style="font-size:3.5rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">我的团队</text>
+            </view>
+            <view bindtap="toFxhouse" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-institution fa-lg" style="font-size:3.5rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">房源推广</text>
+            </view>
+            <view bindtap="toMyspread" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-share-alt fa-lg" style="font-size:3.5rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">我要推广</text>
+            </view>
+            <view bindtap="toFxrecord" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-reorder fa-lg" style="font-size:3.5rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">推广客户</text>
+            </view>
+            <view bindtap="toMoneyrecord" class="weui-grid">
+                <view class="weui-grid__icon">
+                    <text class="fa fa-cubes fa-lg" style="font-size:3.5rem;color:red;"></text>
+                </view>
+                <text class="weui-grid__label">收益记录</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请点击“我知道了”允许授权登录。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>

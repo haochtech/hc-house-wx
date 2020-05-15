@@ -1,0 +1,136 @@
+.container {
+    background-color: #fff;
+    min-height: 100%;
+}
+
+.container .header {
+    width: 750rpx;
+    height: 350rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container .header .pic {
+    width: 380rpx;
+    height: 250rpx;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .header .pic image {
+    width: 140rpx;
+    height: 140rpx;
+    border: 7rpx solid #FFF;
+    border-radius: 140rpx;
+}
+
+.container .header .pic view {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 380rpx;
+    text-align: center;
+    color: #FFF;
+    font-size: .8rem;
+}
+
+.weui-grids {
+    position: relative;
+    overflow: hidden;
+}
+
+.weui-grids:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 0.1rpx;
+    border-top: 0rpx solid #ebebeb;
+    color: #D9D9D9;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.weui-grids:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.1rpx;
+    bottom: 0;
+    border-left: 0rpx solid #ebebeb;
+    color: #D9D9D9;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}
+
+.weui-grid {
+    position: relative;
+    float: left;
+    padding: 40rpx 20rpx;
+    width: 33.33333333%;
+    box-sizing: border-box;
+}
+
+.weui-grid:before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.1rpx;
+    bottom: 0;
+    border-right: 0rpx solid #ebebeb;
+    color: #D9D9D9;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}
+
+.weui-grid:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 0.1rpx;
+    border-bottom: 0rpx solid #ebebeb;
+    color: #D9D9D9;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+}
+
+.weui-grid:active {
+    background-color: #ECECEC;
+}
+
+.weui-grid__icon {
+    width: 160rpx;
+    height: 160rpx;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.weui-grid__icon image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.weui-grid__icon+.weui-grid__label {
+    margin-top: 10rpx;
+}
+
+.weui-grid__label {
+    display: block;
+    text-align: center;
+    color: #000000;
+    font-size: .8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

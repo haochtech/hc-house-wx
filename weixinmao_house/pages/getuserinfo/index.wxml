@@ -1,0 +1,1 @@
+<button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">点击登录</button>

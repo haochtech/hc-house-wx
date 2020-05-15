@@ -1,0 +1,221 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="bindchange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:100vw;">
+            <swiper-item wx:for="{{piclist}}">
+                <image bindload="imageLoad" bindtap="bbb" class="slide-image" data-id="{{index}}" src="{{item}}" style="height:100vw;width:100%;"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="title">
+            <view>
+                <text></text>{{data.title}}</view>
+            <view class="price">
+                <view>{{data.money}}元/月</view>
+                <view> {{data.housestylename}}</view>
+                <view> {{data.payway}} </view>
+            </view>
+        </view>
+        <view class="address">
+            <view>所在小区:{{data.housearea}}</view>
+        </view>
+        <view class="special">
+            <text wx:for="{{data.houselabel}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>出租房介绍</view>
+        </view>
+        <view class="listitem">
+            <view class="items">面积 : <text> {{data.area}}㎡</text>
+                <text style="color:#777676;float:right;width:180px;">付款方式： <text>{{data.payway}}</text>
+                </text>
+            </view>
+            <view class="items">楼层 :<text> {{data.floorname}}</text>
+                <text style="color:#777676;float:right;width:180px;">看房时间：<text>{{data.houselook}}</text>
+                </text>
+            </view>
+            <view class="items">朝向 :<text> {{data.direction}}</text>
+            </view>
+            <view class="items">装修 :<text> {{data.decorate}}</text>
+            </view>
+            <view class="items">年代:<text>{{data.year}}</text>
+            </view>
+            <view class="items">发布时间 :<text> {{data.createtime}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>房源配套</view>
+        </view>
+        <view class="listitem">
+            <view class="special">
+                <text wx:for="{{data.speciallist}}">{{item}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="contentlist" wx:if="{{data.video}}">
+        <view class="title">
+            <view></view>
+            <view>房源视频</view>
+        </view>
+        <view class="listitem">
+            <video src="{{data.video}}" style="width:750rpx;"></video>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>详情介绍</view>
+        </view>
+        <view class="intro">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="doMessage" class="footer">预约抢购</view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>预约信息</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <form bindsubmit="saveuserinfo">
+            <view class="content">
+                <view class="item">
+                    <input class="inputlist" name="name" placeholder="请输入您的姓名" type="text" value="{{user.name}}"></input>
+                </view>
+                <view class="item">
+                    <input class="inputlist" name="tel" placeholder="请输入您的手机号" type="text" value="{{user.tel}}"></input>
+                </view>
+                <view class="item tops">
+                    <button class="bindtel" formType="submit">立即预约</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{showpay}}">
+    <view class="weixinmao-content-userinfo">
+        <view bindtap="closePay" class="close">
+            <text>×</text>
+        </view>
+        <view class="userinfo-title">
+          支付金额:￥{{data.dmoney}}
+        </view>
+        <view class="userinfo-content">
+            <radio-group bindchange="selectPaytype">
+                <label>
+                    <radio checked="" value="0"></radio>在线支付
+          </label>
+                <label>
+                    <radio checked="" value="1"></radio>余额支付
+          </label>
+            </radio-group>
+        </view>
+        <view class="userinfo-button">
+            <button bindtap="pay">立即支付</button>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{shownotice}}">
+    <view class="ccc">
+        <view class="aaa">
+            <view></view>
+            <image bindtap="rrr" src="../../resource/images/xxxx.png" style="width:40rpx;height:40rpx;;display:block"></image>
+        </view>
+        <view style="font-size:44rpx;margin-bottom:10rpx;">注意事项</view>
+        <view style="font-size:24rpx;color:#888;margin-bottom:10rpx;">使用本平台沟通,获得虚拟号码拨打保护和聊天记录凭证记录</view>
+        <view class="ddd">
+            <view class="eee">
+                <view class="bbb"></view>
+            </view>
+            <view style="font-size:32rpx;">签定合同前，请勿缴纳任何定金或押金</view>
+        </view>
+        <view class="ddd">
+            <view class="eee">
+                <view class="bbb"></view>
+            </view>
+            <view style="font-size:32rpx;">女生夜晚看房，请找人陪同</view>
+        </view>
+        <view class="btn">
+            <form bindsubmit="markca" reportSubmit="true">
+                <button data-tel="{{agentinfo.tel}}" formType="submit">知道了</button>
+            </form>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{shownoti}}">
+    <view class="ccc">
+        <view class="aaa">
+            <view></view>
+            <image bindtap="rrr" src="../../resource/images/xxxx.png" style="width:40rpx;height:40rpx;;display:block"></image>
+        </view>
+        <view style="font-size:44rpx;margin-bottom:10rpx;">注意事项</view>
+        <view style="font-size:24rpx;color:#888;margin-bottom:10rpx;">使用本平台沟通,获得虚拟号码拨打保护和聊天记录凭证记录</view>
+        <view class="ddd">
+            <view class="eee">
+                <view class="bbb"></view>
+            </view>
+            <view style="font-size:32rpx;">签定合同前，请勿缴纳任何定金或押金</view>
+        </view>
+        <view class="ddd">
+            <view class="eee">
+                <view class="bbb"></view>
+            </view>
+            <view style="font-size:32rpx;">女生夜晚看房，请找人陪同</view>
+        </view>
+        <view class="btn">
+            <form bindsubmit="markcall" reportSubmit="true">
+                <button data-tel="{{agentinfo.tel}}" formType="submit">知道了</button>
+            </form>
+        </view>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="redirect" url="/weixinmao_house/pages/letshare/index?id={{data.id}}">
+        <view class="iconfont fa fa-share-alt"></view>
+    </navigator>
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_house/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+    <navigator bindtap="goMap" class="u-go-home">
+        <view class="iconfont fa fa-location-arrow"></view>
+    </navigator>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>

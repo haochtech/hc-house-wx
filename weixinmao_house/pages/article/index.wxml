@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}">
+                <image bindtap="tapBanner" class="slide-image" data-id="{{item.id}}" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="unique"></view>
+        </view>
+    </view>
+</view>
+<view class="type-container">
+    <scroll-view class="type-navbar" scrollX="true">
+        <view class="type-box" wx:for="{{category}}">
+            <view bindtap="tabClick" class="type-navbar-item {{activeCategoryId==item.id?'type-item-on':''}}" id="{{item.id}}">
+                    {{item.name}}
+                </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="container">
+    <view class="news">
+        <view class="newslist" wx:for="{{article}}">
+            <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                <view>{{item.title}}</view>
+                <view>{{item.createtime}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="loadmore">
+    <text>{{loadMore}}</text>
+</view>

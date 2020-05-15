@@ -1,0 +1,48 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          请填写您的个人信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">姓 名</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入姓名" type="text" value="{{noteinfo.name?noteinfo.name:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 手机号码 </view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入手机号码" type="text" value="{{noteinfo.tel?noteinfo.tel:''}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name"> 微信号 </view>
+                    <view class="selectitem">
+                        <input name="weixin" placeholder="请输入微信号" type="text" value="{{noteinfo.email?noteinfo.email:''}}"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button class="footer" formType="submit" style="background:{{intro.maincolor}}">提交申请</button>
+        </view>
+    </view>
+</form>
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          您还没有授权呢
+        </view>
+        <view class="userinfo-content">
+          点击授权按钮，期待与您愉快的沟通~
+        </view>
+        <view class="userinfo-button">
+            <button bindtap="cancelUser" style='color: #999;'>取消</button>
+            <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">去授权</button>
+        </view>
+    </view>
+</view>

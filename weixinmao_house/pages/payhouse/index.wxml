@@ -1,0 +1,42 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="name">所属楼盘</view>
+                    <view class="selectitem">
+                        <input disabled="true" name="name" placeholder="" type="text" value="{{data.housename}}"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">户 型</view>
+                    <view class="selectitem">
+                        <input disabled="true" name="name" placeholder="" type="text" value="{{data.housename}}"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="name">支付方式</view>
+                    <view class="selectitem">
+                        <radio-group bindchange="radioChange" class="radio-group">
+                            <label class="radio">
+                                <radio checked="" value="1"></radio>全款
+                  </label>
+                            <label class="radio">
+                                <radio checked="" value="2"></radio>定金
+                  </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button class="footer" formType="submit">{{showtip}}</button>
+            </view>
+        </view>
+    </view>
+</form>

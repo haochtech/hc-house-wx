@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                    二手房
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                  出租房
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                  求购房
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
+                  求租房
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view hidden="{{isuser}}">
+        <view class="getuser">
+            <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">获取用户信息</button>
+        </view>
+    </view>
+    <view hidden="{{!isuser}}">
+        <view class="orderlist" wx:for="{{list}}">
+            <view class="orderid">信息编号:{{item.id}}</view>
+            <view class="content">
+                <view class="item">内容:{{item.content}}</view>
+                <view class="item">特色标签:{{item.special}}</view>
+                <view class="item">信息状态:<text style="color:red; font-weight:600;">{{item.statusStr}}</text>
+                </view>
+                <view class="item">创建时间:{{item.createtime}}</view>
+                <view class="payitem">
+                    <view bindtap="delOrder" data-id="{{item.id}}">删除信息</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

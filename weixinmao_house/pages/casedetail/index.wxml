@@ -1,0 +1,177 @@
+<view class="container">
+    <view class="header">
+        <image src="../../resource/images/c1.jpg"></image>
+    </view>
+    <view class="title">
+      京师·学院山
+    </view>
+    <view class="team">
+        <view class="house">
+            <view>售价</view>
+            <view>8500元/㎡</view>
+        </view>
+        <view class="line"></view>
+        <view class="house">
+            <view>房型</view>
+            <view>普通住宅</view>
+        </view>
+        <view class="line"></view>
+        <view class="house">
+            <view>地区</view>
+            <view>盐城-河东</view>
+        </view>
+    </view>
+    <view calss="detail">
+        <view class="list">
+            <view class="left">
+                <text>占地面积:</text>117168㎡
+          </view>
+            <view class="right">
+                <text> 建筑面积:</text>33.5万㎡
+          </view>
+        </view>
+        <view class="list">
+            <view class="left">
+                <text>容积率:</text>2
+          </view>
+            <view class="right">
+                <text> 绿化率:</text>40%
+          </view>
+        </view>
+        <view class="list">
+            <view class="left">
+                <text>开盘时间:</text>预计10月份
+          </view>
+            <view class="right">
+                <text> 交房时间:</text>东南
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>所属学区:</text>北师大盐城附属学校
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>户型情况:</text>一期4栋高层，户型面积在100-137㎡之间
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>公   交:</text>B支6-23路-28路-88路
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>楼盘特色:</text>纯新盘、教育地产、北师大盐城附中
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>项目地址:</text>新都路与东环路交界处
+          </view>
+        </view>
+        <view class="list">
+            <view class="row">
+                <text>售楼地址:</text>东环路与新都路交界处（北师大盐城附属学校对面）
+          </view>
+        </view>
+    </view>
+    <view class="case">
+        <view class="casetitle">
+            <view></view>
+            <view>楼盘相册</view>
+        </view>
+        <view class="caselist">
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m1.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                           总平面图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m2.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                          区位图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m3.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                            鸟瞰图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m4.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                            销售中心
+                          </view>
+            </view>
+        </view>
+    </view>
+    <view class="case">
+        <view class="casetitle">
+            <view></view>
+            <view>户型图</view>
+        </view>
+        <view class="caselist">
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m1.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                           总平面图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m2.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                          区位图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m3.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                            鸟瞰图
+                          </view>
+            </view>
+            <view class="caseitem">
+                <view bindtap="toNewsDetail" class="pic" data-id="{{item.id}}">
+                    <image src="../../resource/images/m4.jpg"></image>
+                </view>
+                <view bindtap="toNewsDetail" class="title" data-id="{{item.id}}">
+                            销售中心
+                          </view>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="casetitle">
+            <view></view>
+            <view>楼盘介绍</view>
+        </view>
+        <view class="content">
+            <block wx:for="{{content}}" wx:for-index="idy" wx:for-item="cellData">
+                <view class="p" wx:if="{{cellData.type=='view'}}">
+                    <block wx:for="{{cellData.child}}" wx:key="text">
+                        <text bindtap="stockClick" class="a" data-seccode="{{item.attr['data-seccode']}}" data-secname="{{item.attr['data-secname']}}" wx:if="{{item.type=='a'}}">{{item.text}}</text>
+                        <text wx:else>{{item.text}}</text>
+                    </block>
+                </view>
+                <image bindload="imageLoad" class="img" data-index="{{idy}}" mode="aspectFit" src="{{cellData.attr.src}}" wx:if="{{cellData.type=='img'}}"></image>
+            </block>
+        </view>
+    </view>
+</view>

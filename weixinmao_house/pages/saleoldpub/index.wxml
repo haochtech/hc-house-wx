@@ -1,0 +1,144 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          二手房描述
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="填写建议：几室几厅、面积、价格、装修、交通及周边配套等 (为了保护隐私，请不要填写手机或QQ)"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+        房屋特色
+        </view>
+            <view class="checklist">
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="随时看房"></checkbox>随时看房</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="交通便利"></checkbox>交通便利</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="带车位"></checkbox>带车位</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="靠近商圈"></checkbox>靠近商圈</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="靠近医院"></checkbox>靠近医院</view>
+                    <view class="checkitem">
+                        <checkbox checked="" name="special" value="电梯房"></checkbox>电梯房</view>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          图片上传
+       
+        </view>
+            <view class="imglist">
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="1" src="{{imgurl1?imgurl1:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="1" hidden="{{true1}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="2" src="{{imgurl2?imgurl2:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="2" hidden="{{true2}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="3" src="{{imgurl3?imgurl3:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="3" hidden="{{true3}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="4" src="{{imgurl4?imgurl4:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="4" hidden="{{true4}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="5" src="{{imgurl5?imgurl5:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="5" hidden="{{true5}}">
+                        <text>×</text>
+                    </view>
+                </view>
+                <view class="imgitem">
+                    <image bindtap="upload" data-id="6" src="{{imgurl6?imgurl6:'../../resource/images/pub.png'}}"></image>
+                    <view bindtap="delupload" class="sum" data-id="6" hidden="{{true6}}">
+                        <text>×</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          个人信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">联系人</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入联系人" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">电 话</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入电话" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">地 区</view>
+                    <view class="selectitem">
+                        <picker bindchange="bindAreaChange" range="{{arealist}}" rangeKey="name" value="{{Index}}">
+                            <view class="picker">  
+
+                              {{arealist[areaidindex].name?arealist[areaidindex].name:'请选择地区'}}
+                          </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">付费信息</view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">置顶信息</view>
+                    <view class="selectitem">
+                        <picker bindchange="bindToplistChange" range="{{toplist}}" rangeKey="title" value="{{Index}}">
+                            <view class="picker">  
+
+                                          {{toplist[toplistidindex].title?toplist[toplistidindex].title:'选择后信息将显示在最顶部'}}
+                                      </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main" style="padding-bottom:120rpx; margin-top:20rpx;">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="font-weight:600;font-size:.7rem;">
+                        <checkbox-group bindchange="doagree">
+                            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《房屋委托出售协议》</text>
+                        </checkbox-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button bindgetuserinfo="bindGetUserInfo" class="footer" hidden="{{isuser}}" openType="getUserInfo" style="background:{{intro.maincolor}}">立即发布</button>
+            <button class="footer" formType="submit" hidden="{{!isuser}}" style="background:{{intro.maincolor}}">立即发布</button>
+        </view>
+    </view>
+</form>

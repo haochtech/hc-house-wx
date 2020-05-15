@@ -1,0 +1,24 @@
+<form reportSubmit bindsubmit="bindSubmit">
+    <view class="container">
+        <view class="comment1-description">
+            <view class="star-pos" style="display:flex;flex-direction:row;">
+                <view bindtap="changeColor1" class="stars  {{flag>=1?'on':''}}"></view>
+                <view bindtap="changeColor2" class="stars  {{flag>=2?'on':''}}"></view>
+                <view bindtap="changeColor3" class="stars  {{flag>=3?'on':''}}"></view>
+                <view bindtap="changeColor4" class="stars  {{flag>=4?'on':''}}"></view>
+                <view bindtap="changeColor5" class="stars  {{flag>=5?'on':''}}"></view>
+            </view>
+        </view>
+        <view class="weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea focus bindinput="bindTextAreaChange" class="weui-textarea" maxlength="{{noteMaxLen}}" name="content" placeholder="我要评价..." style="height: 8em" value="{{info}}"></textarea>
+                    <view class="weui-textarea-counter">{{noteNowLen}}/{{noteMaxLen}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="btnSf">
+            <button formType="submit">发布</button>
+        </view>
+    </view>
+</form>

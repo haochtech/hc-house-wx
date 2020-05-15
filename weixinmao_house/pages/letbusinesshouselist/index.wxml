@@ -1,0 +1,135 @@
+<view class="search">
+    <navigator hoverClass="none" url="../city/index?id=2">
+        <image mode="aspectFit" src="../../resource/images/coord.png"></image>
+        <text>{{city}}</text>
+    </navigator>
+    <view bindtap="toSearch" class="search_box">
+        <icon size="14" type="search"></icon>
+        <text>请输入查询信息</text>
+    </view>
+</view>
+<view class="list_sort">
+    <view bindtap="selectCars" class="sort_list {{isCars?'':'select'}}">
+        <text>{{title==''?'区域':title}}</text>
+        <image src="{{isCars?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+    </view>
+    <view bindtap="selectPrice" class="sort_list {{isPrice?'':'select'}}">
+        <text>{{price==''?'租金':price}}</text>
+        <image src="{{isPrice?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+    </view>
+    <view bindtap="selectType" class="sort_list {{isType?'':'select'}}">
+        <text>{{typetitle==''?'面积':typetitle}}</text>
+        <image src="{{isType?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+    </view>
+    <view bindtap="selectWay" class="sort_list {{isSelect?'':'select'}}">
+        <text>{{selecttitle==''?'筛选':selecttitle}}</text>
+        <image src="{{isSelect?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+    </view>
+</view>
+<view class="select_cars" hidden="{{isCars}}" style="width:190rpx;">
+    <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:680rpx; left: 0; top:0; bottom: 0; right: 0;">
+        <view bindtap="selectcarsitem" class="select_cars_list {{carid==0?'colorred':''}}" data-title="全部" id="0">
+            <text>全部</text>
+            <image src="../../resource/images/dui.png" wx:if="{{carid==0}}"></image>
+        </view>
+        <block wx:for="{{arealist}}">
+            <view bindtap="selectcarsitem" class="select_cars_list colorred" data-title="{{item.name}}" id="{{item.id}}" wx:if="{{item.id==carid}}">
+                <text>{{item.name}}</text>
+                <image src="../../resource/images/dui.png"></image>
+            </view>
+            <view bindtap="selectcarsitem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:else>
+                <text>{{item.name}}</text>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<view class="select_cars cars_tap" hidden="{{isTaps}}">
+    <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:680rpx; left: 0; top:0; bottom: 0; right: 0;">
+        <view bindtap="selectbuilditem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:for="{{buildarealist}}" wx:key="index">
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+</view>
+<view bindtap="selectCars" class="small_overlay" hidden="{{isCars}}"></view>
+<view class="select_sort" hidden="{{isPrice}}">
+    <view bindtap="selectpriceitem" class="select_cars_list {{priceid==0?'colorred':''}}" data-title="不限" id="0">
+        <text>不限</text>
+        <image src="../../resource/images/dui.png" wx:if="{{priceid==0}}"></image>
+    </view>
+    <block wx:for="{{housepricelist}}">
+        <view bindtap="selectpriceitem" class="select_cars_list colorred" data-title="{{item.name}}" id="{{item.id}}" wx:if="{{item.id==priceid}}">
+            <text>{{item.name}}</text>
+            <image src="../../resource/images/dui.png"></image>
+        </view>
+        <view bindtap="selectpriceitem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:else>
+            <text>{{item.name}}</text>
+        </view>
+    </block>
+</view>
+<view bindtap="selectPrice" class="small_overlay" hidden="{{isPrice}}"></view>
+<view class="select_sort" hidden="{{isType}}">
+    <view bindtap="selecttypeitem" class="select_cars_list {{typeid==0?'colorred':''}}" data-title="不限" id="0">
+        <text>不限</text>
+        <image src="../../resource/images/dui.png" wx:if="{{typeid==0}}"></image>
+    </view>
+    <block wx:for="{{housetypelist}}">
+        <view bindtap="selecttypeitem" class="select_cars_list colorred" data-title="{{item.name}}" id="{{item.id}}" wx:if="{{item.id==typeid}}">
+            <text>{{item.name}}</text>
+            <image src="../../resource/images/dui.png"></image>
+        </view>
+        <view bindtap="selecttypeitem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:else>
+            <text>{{item.name}}</text>
+        </view>
+    </block>
+</view>
+<view bindtap="selectType" class="small_overlay" hidden="{{isType}}"></view>
+<view class="select_sort" hidden="{{isSelect}}">
+    <view bindtap="selectwayitem" class="select_cars_list {{selectid==0?'colorred':''}}" data-title="不限" id="0">
+        <text>不限</text>
+        <image src="../../resource/images/dui.png" wx:if="{{selectid==0}}"></image>
+    </view>
+    <block wx:for="{{housewaylist}}">
+        <view bindtap="selectwayitem" class="select_cars_list colorred" data-title="{{item.name}}" id="{{item.id}}" wx:if="{{item.id==selectid}}">
+            <text>{{item.name}}</text>
+            <image src="../../resource/images/dui.png"></image>
+        </view>
+        <view bindtap="selectwayitem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:else>
+            <text>{{item.name}}</text>
+        </view>
+    </block>
+</view>
+<view bindtap="selectWay" class="small_overlay" hidden="{{isSelect}}"></view>
+<view style="height:15rpx;"></view>
+<block wx:if="{{houselist}}">
+    <view class="newslist" wx:for="{{houselist}}">
+        <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}">
+            <image src="{{item.thumb}}"></image>
+        </view>
+        <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}">
+            <view class="address">
+                <view>
+                    <text>{{item.source==0?'【个人】':'【中介】'}}</text>{{item.title}}</view>
+            </view>
+            <view class="housearea">{{item.housearea}}</view>
+            <view class="perprice">
+                                    {{item.roomtype}}  {{item.payway}} 
+                                </view>
+            <view class="price">
+                <view>
+                    <text>面积{{item.area}}㎡</text>
+                    <text>{{item.housetypename}}</text>
+                    <text>{{item.housestyle}}</text>
+                </view>
+                <view class="money"> {{item.money}}元/月</view>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="loadmore">
+    <text>{{loadMore}}</text>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>

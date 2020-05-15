@@ -1,0 +1,148 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{piclist}}">
+                <image class="slide-image" data-id="" height="562.5rpx" src="{{item}}" width="750rpx"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="title">
+            <view>{{data.housename}}</view>
+            <view class="price">
+                <view>均价{{data.houseprice}}元/㎡</view>
+                <view>{{data.salestatus_str}}</view>
+            </view>
+        </view>
+        <view class="address">
+            <view>开 发 商:{{data.companyname}}</view>
+            <view>项目地址:{{data.houseaddress}}</view>
+            <view>售楼地址:{{data.housesaleaddress}}</view>
+            <view>发布时间:<text>{{data.createtime}}</text>
+            </view>
+        </view>
+        <view class="special">
+            <text wx:for="{{data.speciallist}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="listitem">
+            <view class="items">占地面积:<text>{{data.housecovered}}㎡</text>
+            </view>
+            <view class="items">建筑面积:<text>{{data.buildarea}}万㎡</text>
+            </view>
+            <view class="items">容积率:<text>{{data.houserate}}</text>
+            </view>
+            <view class="items">绿化率:<text>{{data.housegreenrate}}</text>
+            </view>
+            <view class="items">开盘时间:<text>{{data.opensaletime}}</text>
+            </view>
+            <view class="items">入驻时间:<text>{{data.staytime}}</text>
+            </view>
+            <view class="items">项目特色:<text>{{data.specialliststr}}</text>
+            </view>
+            <view class="items">所属学区:<text>{{data.houseschool}}</text>
+            </view>
+            <view class="items">附近公交:<text>{{data.housebus}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>楼盘相册</view>
+        </view>
+    </view>
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true" style="width: 100%">
+            <view class="type-box" wx:for="{{housepic}}">
+                <view bindtap="toPicDetail" class="type-navbar-item " data-id="{{item.id}}" data-typeid="1">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>楼盘户型</view>
+        </view>
+    </view>
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true" style="width: 100%">
+            <view class="type-box" wx:for="{{houseplan}}">
+                <view bindtap="toPicDetail" class="type-navbar-item " data-id="{{item.id}}" data-typeid="0">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="contentlist">
+        <view class="title">
+            <view></view>
+            <view>楼盘详情</view>
+        </view>
+        <view class="intro">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="doMessage" class="footer">预约抢购</view>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_house/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+</view>
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+        <view class="title">
+            <view></view>
+            <view>预约信息</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <form bindsubmit="saveuserinfo">
+            <view class="content">
+                <view class="item">
+                    <input class="inputlist" name="name" placeholder="请输入您的姓名" type="text" value="{{user.name}}"></input>
+                </view>
+                <view class="item">
+                    <input class="inputlist" name="tel" placeholder="请输入您的手机号" type="text" value="{{user.tel}}"></input>
+                </view>
+                <view class="item tops">
+                    <button class="bindtel" formType="submit">立即预约</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>
+<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+    <view class="weixinmao-content-userinfo">
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+        <view class="userinfo-content">
+            <view>为了提供更好的服务</view>
+            <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+        <view class="userinfo-img">
+            <image src="../../resource/images/getinfo.png"></image>
+        </view>
+        <view class='flex btns'>
+          <view class="cancel-button">
+            <button bindtap='cancel_login'>暂不授权</button>
+          </view>
+          
+          <view class="userinfo-button">
+              <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">我知道了</button>
+          </view>
+        </view>
+    </view>
+</view>

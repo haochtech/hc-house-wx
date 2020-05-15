@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                   待审核信息
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                   已审核信息
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="orderlist" wx:for="{{list}}">
+        <view class="orderid">信息编号:{{item.id}}  <text style="font-weight:600;color:red;" wx:if="{{item.toplistid>0}}"> 置顶信息</text>
+        </view>
+        <view class="content">
+            <view class="item">类型:{{item.type}}</view>
+            <view class="item">发布内容:{{item.content}}</view>
+            <view class="item">浏览量:{{item.hits}}</view>
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="item">信息状态:{{item.statusStr}}</view>
+            <block wx:if="{{item.toplistid>0}}">
+                <view class="item">支付状态:   <block wx:if="{{item.paid==0}}">未支付</block>
+                    <block wx:else>
+              已支付
+              </block>
+                </view>
+                <view class="payitem">
+                    <view bindtap="RepayOrder" data-id="{{item.id}}" hidden="{{item.paid==0?false:true}}" wx:if="{{item.paid==0}}">立即支付</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

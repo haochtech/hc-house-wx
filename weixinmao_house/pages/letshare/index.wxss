@@ -1,0 +1,20 @@
+.savepic {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.savepic button {
+    width: 50%;
+    color: #FFF;
+    font-size: .8rem;
+}
+
+.savepic button:nth-child(1) {
+    background: #1aac19;
+}
+
+.savepic button:nth-child(2) {
+    background: #e64340;
+}

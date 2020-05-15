@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                    二手房预约
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                    出租房预约
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view hidden="{{isuser}}">
+        <view class="getuser">
+            <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">获取用户信息</button>
+        </view>
+    </view>
+    <view hidden="{{!isuser}}">
+        <view class="orderlist" wx:for="{{list}}">
+            <view class="orderid">预约编号:{{item.id}}</view>
+            <view class="content">
+                <view class="item">房源类型:  
+          <block wx:if="{{item.type=='newhouse'}}">
+              新楼盘
+         </block>
+                    <block wx:elif="{{item.type=='oldhouse'}}">
+            二手房
+          </block>
+                    <block wx:else>
+
+          出租房
+
+          </block>
+                </view>
+                <view class="item">所属房源: {{item.housename}}</view>
+                <view class="item">客户姓名: {{item.name}}</view>
+                <view bindtap="doCall" class="item" data-tel="{{item.tel}}">客户电话: {{item.tel}}</view>
+                <view class="item">预约备注: {{item.content}}</view>
+                <view class="item">创建时间: {{item.createtime}}</view>
+            </view>
+        </view>
+    </view>
+</view>
